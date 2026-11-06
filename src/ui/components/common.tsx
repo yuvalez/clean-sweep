@@ -1,23 +1,62 @@
-import type { ReactNode } from 'react';
+import { useId, type ReactNode } from 'react';
 import { formatPrice } from '../../engine/pricing';
 import type { Team } from '../../engine/types';
 import { useT } from '../../i18n';
+import { crestFor, monogramColors, patternShapes, SHAPE_PATH } from '../crest';
 
-export function TeamBadge({ team, size = 28 }: { team: Pick<Team, 'short' | 'color' | 'color2' | 'kind'>; size?: number }) {
+export function TeamBadge({
+  team, size = 28,
+}: { team: Pick<Team, 'short' | 'color' | 'color2' | 'kind'> & Partial<Pick<Team, 'id' | 'name'>>; size?: number }) {
   const t = useT();
+  const uid = useId().replace(/:/g, '');
+  const spec = crestFor(team);
+  const path = SHAPE_PATH[spec.shape];
+  const { rects, polys } = patternShapes(spec.pattern);
+  const mono = monogramColors(spec);
+  const showText = size >= 26;
   return (
-    <span
-      className="relative inline-flex shrink-0 items-center justify-center rounded-full font-bold text-white shadow-sm"
-      style={{
-        width: size,
-        height: size,
-        fontSize: Math.max(8, size * 0.3),
-        background: `linear-gradient(135deg, ${team.color} 0 55%, ${team.color2} 55% 100%)`,
-        textShadow: '0 1px 2px rgba(0,0,0,.7)',
-      }}
-      aria-hidden
-    >
-      {team.short.slice(0, 3)}
+    <span className="relative inline-flex shrink-0" style={{ width: size, height: size }} aria-hidden>
+      <svg viewBox="0 0 100 100" width={size} height={size} className="drop-shadow-sm">
+        <defs>
+          <clipPath id={`c${uid}`}>
+            <path d={path} />
+          </clipPath>
+          <linearGradient id={`g${uid}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#fff" stopOpacity="0.32" />
+            <stop offset="0.55" stopColor="#fff" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <g clipPath={`url(#c${uid})`}>
+          <rect width="100" height="100" fill={spec.c1} />
+          {rects.map(([x, y, w, h], i) => (
+            <rect key={`r${i}`} x={x} y={y} width={w} height={h} fill={spec.c2} />
+          ))}
+          {polys.map((pts, i) => (
+            <polygon key={`p${i}`} points={pts} fill={spec.c2} />
+          ))}
+          {spec.ring && <circle cx="50" cy="50" r="39" fill="none" stroke={spec.ring} strokeWidth="9" />}
+          <rect width="100" height="100" fill={`url(#g${uid})`} />
+        </g>
+        <path d={path} fill="none" stroke={spec.trim} strokeWidth="6" strokeLinejoin="round" />
+        {showText && (
+          <text
+            x="50"
+            y="51"
+            textAnchor="middle"
+            dominantBaseline="central"
+            fontFamily="'Bebas Neue', Impact, sans-serif"
+            fontSize={spec.text.length > 3 ? 24 : 30}
+            letterSpacing="1"
+            fill={mono.fill}
+            stroke={mono.stroke}
+            strokeWidth="5"
+            paintOrder="stroke"
+            strokeLinejoin="round"
+          >
+            {spec.text}
+          </text>
+        )}
+      </svg>
       {team.kind === 'legends' && (
         <span className="absolute -end-1 -top-1 text-[10px]" title={t.legendsTitle}>⭐</span>
       )}
