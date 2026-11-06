@@ -1,0 +1,93 @@
+export default `
+Alisson Becker|BRA|2018-2025|GK|91
+Ray Clemence|ENG|1967-1981|GK|89
+Bruce Grobbelaar|ZIM|1981-1994|GK|83
+Pepe Reina|ESP|2005-2013|GK|84
+Jerzy Dudek|POL|2001-2007|GK|78
+Tommy Lawrence|SCO|1957-1971|GK|76
+David James|ENG|1992-1999|GK|74
+Simon Mignolet|BEL|2013-2019|GK|73
+Caoimhín Kelleher|IRL|2017-2025|GK|76
+Sander Westerveld|NED|1999-2001|GK|73
+Virgil van Dijk|NED|2018-2025|CB|93
+Alan Hansen|SCO|1977-1991|CB|90
+Trent Alexander-Arnold|ENG|2016-2025|RB|88
+Andrew Robertson|SCO|2017-2025|LB|87
+Jamie Carragher|ENG|1996-2013|CB RB|85
+Sami Hyypiä|FIN|1999-2009|CB|86
+Mark Lawrenson|IRL|1981-1988|CB|86
+Phil Neal|ENG|1974-1985|RB|85
+Emlyn Hughes|ENG|1966-1979|CB LB CDM|87
+Tommy Smith|ENG|1962-1978|CB|82
+Ron Yeats|SCO|1961-1971|CB|81
+Alan Kennedy|ENG|1978-1985|LB|79
+Steve Nicol|SCO|1981-1994|RB LB|81
+John Arne Riise|NOR|2001-2008|LB LM|80
+Daniel Agger|DEN|2006-2014|CB|81
+Martin Škrtel|SVK|2008-2016|CB|80
+Joël Matip|CMR|2016-2024|CB|81
+Joe Gomez|ENG|2015-2025|CB RB|76
+Ibrahima Konaté|FRA|2021-2025|CB|83
+Stephane Henchoz|SUI|1999-2005|CB|76
+Markus Babbel|GER|2000-2004|RB CB|77
+Glen Johnson|ENG|2009-2015|RB|77
+Chris Lawler|ENG|1960-1975|RB|79
+Rob Jones|ENG|1991-1999|RB|74
+Álvaro Arbeloa|ESP|2007-2009|RB|72
+Kostas Tsimikas|GRE|2020-2025|LB|73
+Steven Gerrard|ENG|1998-2015|CM CAM|93
+Graeme Souness|SCO|1978-1984|CM CDM|90
+Xabi Alonso|ESP|2004-2009|CM CDM|87
+Javier Mascherano|ARG|2007-2010|CDM|84
+John Barnes|ENG|1987-1997|LM LW CAM|89
+Terry McDermott|ENG|1974-1982|CM|83
+Ronnie Whelan|IRL|1979-1994|CM LM|81
+Ray Kennedy|ENG|1974-1982|LM CM|83
+Jan Mølby|DEN|1984-1996|CM|80
+Steve McManaman|ENG|1990-1999|RM LM CAM|84
+Fabinho|BRA|2018-2023|CDM|86
+Jordan Henderson|ENG|2011-2023|CM CDM|84
+Georginio Wijnaldum|NED|2016-2021|CM|83
+Philippe Coutinho|BRA|2013-2018|CAM LW|86
+Alexis Mac Allister|ARG|2023-2025|CM|85
+Ryan Gravenberch|NED|2023-2025|CDM CM|84
+Dominik Szoboszlai|HUN|2023-2025|CAM CM|82
+Dietmar Hamann|GER|1999-2006|CDM|80
+Jamie Redknapp|ENG|1991-2002|CM|78
+Lucas Leiva|BRA|2007-2017|CDM|76
+Momo Sissoko|MLI|2005-2008|CDM|72
+Ian Callaghan|ENG|1960-1978|RM CM|83
+Peter Thompson|ENG|1963-1974|LM|79
+James Milner|ENG|2015-2023|CM LB RM|79
+Adam Lallana|ENG|2014-2020|CAM CM|76
+Joe Allen|WAL|2012-2016|CM|71
+Gary McAllister|SCO|2000-2002|CM|77
+Harry Kewell|AUS|2003-2008|LM LW|74
+Kenny Dalglish|SCO|1977-1990|ST CAM|94
+Ian Rush|WAL|1980-1996|ST|91
+Kevin Keegan|ENG|1971-1977|ST CAM|90
+Mohamed Salah|EGY|2017-2025|RW|94
+Luis Suárez|URU|2011-2014|ST|91
+Fernando Torres|ESP|2007-2011|ST|90
+Roger Hunt|ENG|1958-1969|ST|85
+Robbie Fowler|ENG|1993-2001|ST|87
+Michael Owen|ENG|1996-2004|ST|89
+Sadio Mané|SEN|2016-2022|LW|89
+Roberto Firmino|BRA|2015-2023|ST CAM|87
+Ian St John|SCO|1961-1971|ST|82
+John Toshack|WAL|1970-1978|ST|81
+Peter Beardsley|ENG|1987-1991|CAM ST|84
+John Aldridge|IRL|1987-1989|ST|82
+Billy Liddell|SCO|1938-1961|LW ST|86
+Luis Díaz|COL|2022-2025|LW|83
+Diogo Jota|POR|2020-2025|LW ST|82
+Darwin Núñez|URU|2022-2025|ST|76
+Cody Gakpo|NED|2023-2025|LW ST|81
+Emile Heskey|ENG|2000-2004|ST|74
+Dirk Kuyt|NED|2006-2012|RW ST|78
+Craig Bellamy|WAL|2006-2007|ST LW|72
+Daniel Sturridge|ENG|2013-2019|ST|80
+Djibril Cissé|FRA|2004-2006|ST|72
+Stan Collymore|ENG|1995-1997|ST|76
+Andy Carroll|ENG|2011-2013|ST|66
+`;

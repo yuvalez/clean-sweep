@@ -1,0 +1,99 @@
+export default `
+Peter Schmeichel|DEN|1991-1999|GK|92
+Edwin van der Sar|NED|2005-2011|GK|90
+David de Gea|ESP|2011-2023|GK|88
+Alex Stepney|ENG|1966-1978|GK|80
+Gary Bailey|ENG|1978-1987|GK|77
+Fabien Barthez|FRA|2000-2004|GK|80
+André Onana|CMR|2023-2025|GK|77
+Tim Howard|USA|2003-2007|GK|74
+Harry Gregg|NIR|1957-1967|GK|80
+Ben Foster|ENG|2005-2010|GK|68
+Rio Ferdinand|ENG|2002-2014|CB|91
+Nemanja Vidić|SRB|2006-2014|CB|90
+Gary Neville|ENG|1992-2011|RB|85
+Patrice Evra|FRA|2006-2014|LB|87
+Denis Irwin|IRL|1990-2002|LB RB|86
+Jaap Stam|NED|1998-2001|CB|90
+Steve Bruce|ENG|1987-1996|CB|84
+Gary Pallister|ENG|1989-1998|CB|85
+Paul Parker|ENG|1991-1996|RB|78
+Martin Buchan|SCO|1972-1983|CB|83
+Bill Foulkes|ENG|1951-1970|CB|82
+Roger Byrne|ENG|1951-1958|LB|84
+Duncan Edwards|ENG|1953-1958|CDM CB|90
+Tony Dunne|IRL|1960-1973|LB|79
+Shay Brennan|IRL|1957-1970|RB|76
+Arthur Albiston|SCO|1974-1988|LB|76
+Ronny Johnsen|NOR|1996-2002|CB CDM|79
+Wes Brown|ENG|1998-2011|CB RB|77
+John O'Shea|IRL|1999-2011|CB RB LB|75
+Mikaël Silvestre|FRA|1999-2008|CB LB|76
+Rafael|BRA|2008-2015|RB|74
+Chris Smalling|ENG|2010-2019|CB|76
+Phil Jones|ENG|2011-2023|CB|70
+Luke Shaw|ENG|2014-2025|LB|81
+Harry Maguire|ENG|2019-2025|CB|77
+Lisandro Martínez|ARG|2022-2025|CB|82
+Raphaël Varane|FRA|2021-2024|CB|81
+Diogo Dalot|POR|2018-2025|RB LB|77
+Aaron Wan-Bissaka|ENG|2019-2024|RB|73
+Victor Lindelöf|SWE|2017-2025|CB|72
+Roy Keane|IRL|1993-2005|CDM CM|91
+Paul Scholes|ENG|1994-2013|CM CAM|90
+Bryan Robson|ENG|1981-1994|CM|89
+Bobby Charlton|ENG|1956-1973|CAM CM ST|94
+Ryan Giggs|WAL|1990-2014|LM LW|90
+David Beckham|ENG|1992-2003|RM CM|89
+Michael Carrick|ENG|2006-2018|CDM CM|85
+Paul Ince|ENG|1989-1995|CDM CM|84
+Bruno Fernandes|POR|2020-2025|CAM|87
+Juan Sebastián Verón|ARG|2001-2003|CM CAM|79
+Owen Hargreaves|ENG|2007-2011|CDM|78
+Darren Fletcher|SCO|2003-2015|CM CDM|77
+Nicky Butt|ENG|1992-2004|CDM CM|78
+Andrei Kanchelskis|RUS|1991-1995|RM RW|82
+Lee Sharpe|ENG|1988-1996|LM|76
+Ray Wilkins|ENG|1979-1984|CM|78
+Steve Coppell|ENG|1975-1983|RM|78
+Gordon Strachan|SCO|1984-1989|RM CM|80
+Paul Pogba|FRA|2016-2022|CM|84
+Ander Herrera|ESP|2014-2019|CM|77
+Nemanja Matić|SRB|2017-2022|CDM|76
+Casemiro|BRA|2022-2025|CDM|80
+Anderson|BRA|2007-2015|CM|71
+Kleberson|BRA|2003-2005|CM|66
+Ji-sung Park|KOR|2005-2012|RM LM CM|78
+Kobbie Mainoo|ENG|2023-2025|CM|76
+Christian Eriksen|DEN|2022-2025|CAM CM|76
+Scott McTominay|SCO|2017-2024|CM CDM|75
+George Best|NIR|1963-1974|RW LW|95
+Denis Law|SCO|1962-1973|ST|92
+Eric Cantona|FRA|1992-1997|ST CAM|91
+Cristiano Ronaldo|POR|2003-2009|RW LW ST|94
+Wayne Rooney|ENG|2004-2017|ST CAM|90
+Ruud van Nistelrooy|NED|2001-2006|ST|90
+Mark Hughes|WAL|1980-1995|ST|83
+Andy Cole|ENG|1995-2001|ST|85
+Dwight Yorke|TRI|1998-2002|ST|86
+Teddy Sheringham|ENG|1997-2001|ST CAM|82
+Ole Gunnar Solskjær|NOR|1996-2007|ST|81
+Dimitar Berbatov|BUL|2008-2012|ST|83
+Robin van Persie|NED|2012-2015|ST|88
+Carlos Tevez|ARG|2007-2009|ST|83
+Tommy Taylor|ENG|1953-1958|ST|84
+Brian McClair|SCO|1987-1998|ST CM|80
+Javier Hernández|MEX|2010-2015|ST|78
+Nani|POR|2007-2014|RW LW|80
+Antonio Valencia|ECU|2009-2019|RM RB|80
+Marcus Rashford|ENG|2015-2025|LW ST|83
+Anthony Martial|FRA|2015-2024|LW ST|77
+Alejandro Garnacho|ARG|2022-2025|LW|76
+Zlatan Ibrahimović|SWE|2016-2018|ST|82
+Romelu Lukaku|BEL|2017-2019|ST|78
+Ángel Di María|ARG|2014-2015|RW|75
+Jadon Sancho|ENG|2021-2025|RW LW|70
+Diego Forlán|URU|2002-2004|ST|69
+Danny Welbeck|ENG|2008-2014|ST LW|70
+Federico Macheda|ITA|2007-2014|ST|65
+`;

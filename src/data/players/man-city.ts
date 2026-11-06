@@ -1,0 +1,88 @@
+export default `
+Ederson|BRA|2017-2025|GK|88
+Joe Hart|ENG|2006-2018|GK|83
+Bert Trautmann|GER|1949-1964|GK|86
+Joe Corrigan|ENG|1967-1983|GK|79
+Claudio Bravo|CHI|2016-2020|GK|72
+Willy Caballero|ARG|2014-2017|GK|70
+Stefan Ortega|GER|2022-2025|GK|74
+David James|ENG|2004-2006|GK|74
+Shay Given|IRL|2009-2011|GK|78
+Tony Coton|ENG|1990-1996|GK|74
+Vincent Kompany|BEL|2008-2019|CB|90
+Rúben Dias|POR|2020-2025|CB|88
+Kyle Walker|ENG|2017-2025|RB|86
+João Cancelo|POR|2019-2023|RB LB|86
+Pablo Zabaleta|ARG|2008-2017|RB|82
+Aymeric Laporte|ESP|2018-2023|CB|84
+John Stones|ENG|2016-2025|CB CDM|85
+Joško Gvardiol|CRO|2023-2025|CB LB|85
+Manuel Akanji|SUI|2022-2025|CB|82
+Nathan Aké|NED|2020-2025|CB LB|80
+Aleksandar Kolarov|SRB|2010-2017|LB|79
+Gaël Clichy|FRA|2011-2017|LB|76
+Nicolás Otamendi|ARG|2015-2020|CB|81
+Benjamin Mendy|FRA|2017-2022|LB|72
+Micah Richards|ENG|2005-2015|RB CB|76
+Joleon Lescott|ENG|2009-2014|CB|76
+Kolo Touré|CIV|2009-2013|CB|74
+Mike Doyle|ENG|1962-1978|CB CDM|80
+Tony Book|ENG|1966-1974|RB|78
+Dave Watson|ENG|1975-1979|CB|80
+Glyn Pardoe|ENG|1962-1976|LB|74
+Richard Dunne|IRL|2000-2009|CB|76
+Sylvinho|BRA|2009-2010|LB|68
+Oleksandr Zinchenko|UKR|2016-2022|LB|74
+Rico Lewis|ENG|2022-2025|RB CM|74
+Kevin De Bruyne|BEL|2015-2025|CAM CM|94
+David Silva|ESP|2010-2020|CAM CM|91
+Rodri|ESP|2019-2025|CDM|93
+Yaya Touré|CIV|2010-2018|CM CDM|90
+Fernandinho|BRA|2013-2022|CDM|85
+İlkay Gündoğan|GER|2016-2024|CM CAM|86
+Bernardo Silva|POR|2017-2025|CAM RW CM|88
+Colin Bell|ENG|1966-1979|CM|88
+Mateo Kovačić|CRO|2023-2025|CM|78
+Gareth Barry|ENG|2009-2013|CDM CM|76
+Nigel de Jong|NED|2009-2012|CDM|76
+Samir Nasri|FRA|2011-2017|CAM LM|80
+James Milner|ENG|2010-2015|CM RM|78
+Fabian Delph|ENG|2015-2019|CM LB|70
+Georgi Kinkladze|GEO|1995-1998|CAM|80
+Shaun Wright-Phillips|ENG|1999-2005|RM RW|77
+Peter Barnes|ENG|1974-1979|LM LW|76
+Asa Hartford|SCO|1974-1981|CM|78
+Alan Oakes|ENG|1959-1976|CM|78
+Steve McManaman|ENG|2003-2005|RM|68
+Phil Foden|ENG|2017-2025|CAM LW|88
+Mateus Nunes|POR|2023-2025|CM|72
+Kalvin Phillips|ENG|2022-2025|CDM|68
+Sergio Agüero|ARG|2011-2021|ST|93
+Erling Haaland|NOR|2022-2025|ST|94
+Raheem Sterling|ENG|2015-2022|LW RW|87
+Leroy Sané|GER|2016-2020|LW|84
+Riyad Mahrez|ALG|2018-2023|RW|85
+Carlos Tevez|ARG|2009-2013|ST|86
+Edin Džeko|BIH|2011-2016|ST|81
+Gabriel Jesus|BRA|2017-2022|ST|80
+Francis Lee|ENG|1967-1974|ST|86
+Mike Summerbee|ENG|1965-1975|RW|83
+Neil Young|ENG|1959-1972|ST LW|79
+Dennis Tueart|ENG|1974-1983|LW ST|80
+Uwe Rösler|GER|1994-1998|ST|74
+Paul Dickov|SCO|1996-2002|ST|70
+Nicolas Anelka|FRA|2002-2005|ST|79
+Robinho|BRA|2008-2010|LW|78
+Mario Balotelli|ITA|2010-2013|ST|76
+Jack Grealish|ENG|2021-2025|LW|80
+Julián Álvarez|ARG|2022-2024|ST|82
+Jérémy Doku|BEL|2023-2025|LW|80
+Savinho|BRA|2024-2025|RW|79
+Omar Marmoush|EGY|2025-2025|ST|78
+Benjani|ZIM|2008-2010|ST|66
+Craig Bellamy|WAL|2009-2010|LW ST|74
+Shaun Goater|BER|1998-2003|ST|74
+Ferran Torres|ESP|2020-2022|RW ST|75
+Stevan Jovetić|MNE|2013-2015|ST|70
+Wilfried Bony|CIV|2015-2017|ST|66
+`;

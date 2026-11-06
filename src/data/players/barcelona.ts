@@ -1,0 +1,114 @@
+export default `
+Víctor Valdés|ESP|2002-2014|GK|87
+Andoni Zubizarreta|ESP|1986-1994|GK|86
+Marc-André ter Stegen|GER|2014-2025|GK|89
+Ricardo Zamora|ESP|1919-1922|GK|85
+Antoni Ramallets|ESP|1946-1962|GK|86
+Claudio Bravo|CHI|2014-2016|GK|82
+Vítor Baía|POR|1996-1999|GK|79
+Jasper Cillessen|NED|2016-2019|GK|76
+José Manuel Pinto|ESP|2008-2014|GK|72
+Roberto Bonano|ARG|2001-2003|GK|70
+Carles Puyol|ESP|1999-2014|CB RB|91
+Gerard Piqué|ESP|2008-2022|CB|90
+Dani Alves|BRA|2008-2016|RB RWB|91
+Jordi Alba|ESP|2012-2023|LB LWB|87
+Eric Abidal|FRA|2007-2013|LB CB|84
+Ronald Koeman|NED|1989-1995|CB CDM|90
+Rafael Márquez|MEX|2003-2010|CB CDM|85
+Javier Mascherano|ARG|2010-2018|CB CDM|86
+Migueli|ESP|1973-1989|CB|83
+Sergi Barjuán|ESP|1993-2002|LB|81
+Albert Ferrer|ESP|1990-1998|RB|80
+Frank de Boer|NED|1999-2003|CB LB|82
+Miguel Ángel Nadal|ESP|1991-1999|CB CDM|82
+Michael Reiziger|NED|1997-2004|RB|78
+Gianluca Zambrotta|ITA|2006-2008|RB LB|80
+Lilian Thuram|FRA|2006-2008|CB RB|80
+Samuel Umtiti|FRA|2016-2023|CB|79
+Ronald Araújo|URU|2018-2025|CB RB|84
+Jules Koundé|FRA|2022-2025|RB CB|85
+Pau Cubarsí|ESP|2023-2025|CB|82
+Alejandro Balde|ESP|2021-2025|LB LWB|80
+José Ramón Alexanko|ESP|1980-1993|CB|80
+Sergi Roberto|ESP|2010-2024|RB CM|77
+Juliano Belletti|BRA|2004-2007|RB|76
+Maxwell|BRA|2009-2012|LB|75
+Adriano Correia|BRA|2010-2014|LB RB|73
+Oleguer Presas|ESP|2001-2008|CB RB|72
+Thomas Vermaelen|BEL|2014-2019|CB|71
+Clément Lenglet|FRA|2018-2023|CB|74
+Sergiño Dest|USA|2020-2022|RB RWB|71
+Martín Cáceres|URU|2008-2009|CB|68
+Xavi Hernández|ESP|1998-2015|CM|94
+Andrés Iniesta|ESP|2002-2018|CM CAM LW|94
+Sergio Busquets|ESP|2008-2023|CDM|90
+Pep Guardiola|ESP|1990-2001|CDM CM|87
+Johan Neeskens|NED|1974-1979|CM|88
+Bernd Schuster|GER|1980-1988|CM CAM|87
+Deco|POR|2004-2008|CAM CM|88
+Michael Laudrup|DEN|1989-1994|CAM|90
+Luis Suárez Miramontes|ESP|1953-1961|CAM CM|91
+Josep Samitier|ESP|1919-1932|CAM ST|86
+Ivan Rakitić|CRO|2014-2020|CM|85
+Frenkie de Jong|NED|2019-2025|CM CDM|85
+Pedri|ESP|2020-2025|CM CAM|88
+Gavi|ESP|2021-2025|CM|81
+Yaya Touré|CIV|2007-2010|CDM CM|83
+Phillip Cocu|NED|1998-2004|CDM CM|83
+José Mari Bakero|ESP|1988-1996|CAM CM|83
+Cesc Fàbregas|ESP|2011-2014|CAM CM|84
+Dani Olmo|ESP|2024-2025|CAM LW|83
+Luis Enrique|ESP|1996-2004|CAM RW CM|85
+Seydou Keita|MLI|2008-2012|CM CDM|78
+Thiago Alcântara|ESP|2009-2013|CM CAM|79
+Guillermo Amor|ESP|1988-1998|CM|78
+Eusebio Sacristán|ESP|1988-1995|CM RM|77
+Gheorghe Hagi|ROU|1994-1996|CAM|79
+Edgar Davids|NED|2003-2004|CM CDM|79
+Iván de la Peña|ESP|1995-1998|CAM|77
+Juan Román Riquelme|ARG|2002-2003|CAM|74
+Thiago Motta|BRA|2001-2007|CDM CM|73
+Arthur Melo|BRA|2018-2020|CM|73
+Paulinho|BRA|2017-2018|CM|73
+Gerard López|ESP|2000-2005|CM LM|71
+Alex Song|CMR|2012-2014|CDM|69
+André Gomes|POR|2016-2019|CM|68
+Lionel Messi|ARG|2004-2021|RW CAM ST|99
+Johan Cruyff|NED|1973-1978|ST CAM LW|95
+Ronaldinho|BRA|2003-2008|LW CAM|95
+Ronaldo Nazário|BRA|1996-1997|ST|94
+László Kubala|HUN|1950-1961|ST CAM|93
+Rivaldo|BRA|1997-2002|LW CAM ST|92
+Luis Suárez|URU|2014-2020|ST|92
+Neymar|BRA|2013-2017|LW|92
+Romário|BRA|1993-1995|ST|91
+Hristo Stoichkov|BUL|1990-1998|LW ST|90
+Samuel Eto'o|CMR|2004-2009|ST|90
+Lamine Yamal|ESP|2023-2025|RW|90
+Luís Figo|POR|1995-2000|RW RM|89
+Diego Maradona|ARG|1982-1984|CAM ST|88
+Raphinha|BRA|2022-2025|RW LW|88
+Robert Lewandowski|POL|2022-2025|ST|88
+Thierry Henry|FRA|2007-2010|LW ST|86
+David Villa|ESP|2010-2013|ST LW|86
+Patrick Kluivert|NED|1998-2004|ST|85
+Evaristo|BRA|1957-1962|ST|84
+Zlatan Ibrahimović|SWE|2009-2010|ST|84
+Gary Lineker|ENG|1986-1989|ST|83
+Pedro|ESP|2008-2015|RW LW|82
+Allan Simonsen|DEN|1979-1982|ST RW|82
+Ousmane Dembélé|FRA|2017-2023|RW|81
+Alexis Sánchez|CHI|2011-2014|RW LW ST|80
+Ludovic Giuly|FRA|2004-2007|RW|80
+Antoine Griezmann|FRA|2019-2021|ST CAM|79
+Txiki Begiristain|ESP|1988-1995|LW LM|79
+Marc Overmars|NED|2000-2004|LW LM|78
+Javier Saviola|ARG|2001-2004|ST|78
+Ferran Torres|ESP|2022-2025|LW ST|76
+Julio Salinas|ESP|1988-1994|ST|76
+Ansu Fati|ESP|2019-2023|LW|74
+Bojan Krkić|ESP|2007-2011|ST RW|72
+Paco Alcácer|ESP|2016-2018|ST|69
+Cristian Tello|ESP|2011-2014|LW LM|68
+`;

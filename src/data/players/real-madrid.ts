@@ -1,0 +1,118 @@
+export default `
+Iker Casillas|ESP|1999-2015|GK|92
+Thibaut Courtois|BEL|2018-2025|GK|91
+Ricardo Zamora|ESP|1930-1936|GK|88
+Keylor Navas|CRC|2014-2019|GK|85
+Paco Buyo|ESP|1986-1997|GK|83
+Miguel Ángel González|ESP|1968-1986|GK|80
+Diego López|ESP|2013-2014|GK|80
+Bodo Illgner|GER|1996-2001|GK|79
+Andriy Lunin|UKR|2018-2025|GK|77
+José Araquistáin|ESP|1961-1968|GK|75
+Jerzy Dudek|POL|2007-2011|GK|70
+Sergio Ramos|ESP|2005-2021|CB RB|93
+Roberto Carlos|BRA|1996-2007|LB LWB|92
+Fernando Hierro|ESP|1989-2003|CB CDM|90
+Marcelo|BRA|2006-2022|LB LWB|88
+Raphaël Varane|FRA|2011-2021|CB|88
+José Santamaría|URU|1957-1966|CB|87
+Dani Carvajal|ESP|2013-2025|RB|87
+Pepe|POR|2007-2017|CB|86
+Antonio Rüdiger|GER|2022-2025|CB|86
+Manuel Sanchís|ESP|1983-2001|CB|85
+José Antonio Camacho|ESP|1973-1989|LB|85
+Éder Militão|BRA|2019-2025|CB|85
+Fabio Cannavaro|ITA|2006-2009|CB|84
+Iván Helguera|ESP|1999-2007|CB CDM|82
+Michel Salgado|ESP|1999-2009|RB|80
+Marquitos|ESP|1954-1962|CB|80
+Rafael Gordillo|ESP|1985-1992|LB LM|80
+Ferland Mendy|FRA|2019-2025|LB|80
+Christian Panucci|ITA|1996-1999|RB|79
+Nacho Fernández|ESP|2011-2024|CB RB LB|79
+Gregorio Benito|ESP|1969-1982|CB|78
+Chendo|ESP|1982-1998|RB|78
+Álvaro Arbeloa|ESP|2009-2016|RB LB|76
+Pachín|ESP|1959-1968|LB|76
+Aitor Karanka|ESP|1997-2002|CB|73
+Fábio Coentrão|POR|2011-2017|LB|72
+Iván Campo|ESP|1998-2002|CB|70
+Ezequiel Garay|ARG|2009-2011|CB|70
+Raúl Bravo|ESP|2000-2007|LB CB|68
+Christoph Metzelder|GER|2007-2010|CB|67
+Zinedine Zidane|FRA|2001-2006|CAM CM|95
+Luka Modrić|CRO|2012-2025|CM CAM|93
+Toni Kroos|GER|2014-2024|CM|91
+Jude Bellingham|ENG|2023-2025|CAM CM|90
+Fernando Redondo|ARG|1994-2000|CDM CM|89
+Casemiro|BRA|2013-2022|CDM|88
+Claude Makélélé|FRA|2000-2003|CDM|88
+Federico Valverde|URU|2018-2025|CM RM|88
+Xabi Alonso|ESP|2009-2014|CM CDM|87
+Mesut Özil|GER|2010-2013|CAM|87
+Míchel|ESP|1982-1996|RM CM|86
+Pirri|ESP|1964-1980|CM CDM|86
+Uli Stielike|GER|1977-1985|CDM CB|85
+Clarence Seedorf|NED|1996-2000|CM|84
+Günter Netzer|GER|1973-1976|CAM CM|84
+Isco|ESP|2013-2022|CAM CM|84
+Aurélien Tchouaméni|FRA|2022-2025|CDM|83
+Eduardo Camavinga|FRA|2021-2025|CM CDM|82
+Guti|ESP|1995-2010|CAM CM|81
+Kaká|BRA|2009-2013|CAM|80
+Martín Vázquez|ESP|1983-1992|CAM CM|80
+Steve McManaman|ENG|1999-2003|RM CM|80
+James Rodríguez|COL|2014-2020|CAM|80
+Wesley Sneijder|NED|2007-2009|CAM|80
+Sami Khedira|GER|2010-2015|CM CDM|80
+Luis del Sol|ESP|1960-1962|CM|80
+Velázquez|ESP|1965-1977|CAM|79
+Arda Güler|TUR|2023-2025|CAM RW|79
+Vicente del Bosque|ESP|1970-1984|CM|79
+José María Zárraga|ESP|1949-1962|CDM|78
+Mahamadou Diarra|MLI|2006-2011|CDM|77
+Mateo Kovačić|CRO|2015-2018|CM|77
+Ricardo Gallego|ESP|1979-1989|CDM|76
+Lassana Diarra|FRA|2009-2012|CDM|76
+Rafael van der Vaart|NED|2008-2010|CAM|76
+Dani Ceballos|ESP|2017-2025|CM|72
+Esteban Cambiasso|ARG|2002-2004|CDM|72
+Fernando Gago|ARG|2007-2011|CDM CM|71
+Thomas Gravesen|DEN|2004-2006|CDM|68
+Cristiano Ronaldo|POR|2009-2018|LW ST|98
+Alfredo Di Stéfano|ARG|1953-1964|ST CAM|97
+Ferenc Puskás|HUN|1958-1966|ST|95
+Kylian Mbappé|FRA|2024-2025|ST LW|93
+Ronaldo Nazário|BRA|2002-2007|ST|92
+Karim Benzema|FRA|2009-2023|ST|92
+Raúl|ESP|1994-2010|ST CAM|91
+Paco Gento|ESP|1953-1971|LW LM|91
+Luís Figo|POR|2000-2005|RW RM|91
+Vinícius Júnior|BRA|2018-2025|LW|91
+Hugo Sánchez|MEX|1985-1992|ST|90
+Gareth Bale|WAL|2013-2022|RW|88
+Raymond Kopa|FRA|1956-1959|RW CAM|88
+Emilio Butragueño|ESP|1984-1995|ST|87
+Amancio|ESP|1962-1976|RW|86
+Ruud van Nistelrooy|NED|2006-2010|ST|86
+Santillana|ESP|1971-1988|ST|85
+Juanito|ESP|1977-1987|RW ST|85
+Ángel Di María|ARG|2010-2014|RW LM|85
+Davor Šuker|CRO|1996-1999|ST|84
+Iván Zamorano|CHI|1992-1995|ST|84
+Predrag Mijatović|MNE|1996-1999|ST|83
+Gonzalo Higuaín|ARG|2007-2013|ST|83
+Rodrygo|BRA|2019-2025|RW LW|83
+Arjen Robben|NED|2007-2009|RW|82
+Fernando Morientes|ESP|1997-2005|ST|81
+Michael Owen|ENG|2004-2005|ST|79
+Robinho|BRA|2005-2008|LW|78
+Laurie Cunningham|ENG|1979-1984|LW LM|76
+Álvaro Morata|ESP|2014-2016|ST|76
+Brahim Díaz|MAR|2019-2025|RW CAM|74
+Joselu|ESP|2023-2024|ST|73
+Endrick|BRA|2024-2025|ST|72
+Javier Hernández|MEX|2014-2015|ST|70
+Jesé|ESP|2011-2016|LW|68
+Julio Baptista|BRA|2005-2006|ST CAM|68
+`;

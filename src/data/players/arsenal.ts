@@ -1,0 +1,91 @@
+export default `
+David Seaman|ENG|1990-2003|GK|88
+Jens Lehmann|GER|2003-2008|GK|85
+Pat Jennings|NIR|1977-1985|GK|83
+Bob Wilson|SCO|1963-1974|GK|78
+David Raya|ESP|2023-2025|GK|85
+Aaron Ramsdale|ENG|2021-2024|GK|76
+Wojciech Szczęsny|POL|2009-2017|GK|78
+Manuel Almunia|ESP|2004-2012|GK|72
+John Lukic|ENG|1983-1996|GK|76
+Petr Čech|CZE|2015-2019|GK|78
+Tony Adams|ENG|1983-2002|CB|89
+Sol Campbell|ENG|2001-2006|CB|89
+Ashley Cole|ENG|1999-2006|LB|87
+Lee Dixon|ENG|1988-2002|RB|83
+Nigel Winterburn|ENG|1987-2000|LB|83
+Martin Keown|ENG|1993-2004|CB|83
+Steve Bould|ENG|1988-1999|CB|81
+Kolo Touré|CIV|2002-2009|CB|83
+Lauren|CMR|2000-2007|RB|80
+William Saliba|FRA|2019-2025|CB|88
+Gabriel Magalhães|BRA|2020-2025|CB|86
+Ben White|ENG|2021-2025|RB CB|81
+Jurriën Timber|NED|2023-2025|RB LB|79
+Laurent Koscielny|FRA|2010-2019|CB|82
+Bacary Sagna|FRA|2007-2014|RB|80
+Kenny Sansom|ENG|1980-1988|LB|82
+Frank McLintock|SCO|1964-1973|CB|82
+Pat Rice|NIR|1964-1980|RB|76
+David O'Leary|IRL|1975-1993|CB|81
+Gaël Clichy|FRA|2003-2011|LB|78
+Thomas Vermaelen|BEL|2009-2014|CB LB|78
+Per Mertesacker|GER|2011-2018|CB|78
+Héctor Bellerín|ESP|2013-2022|RB|76
+Kieran Tierney|SCO|2019-2025|LB|76
+Nacho Monreal|ESP|2013-2019|LB|74
+Oleksandr Zinchenko|UKR|2022-2025|LB CM|75
+Patrick Vieira|FRA|1996-2005|CDM CM|92
+Cesc Fàbregas|ESP|2003-2011|CM CAM|88
+Emmanuel Petit|FRA|1997-2000|CDM CM|83
+Martin Ødegaard|NOR|2021-2025|CAM|88
+Declan Rice|ENG|2023-2025|CDM CM|88
+Robert Pirès|FRA|2000-2006|LM LW CAM|88
+Freddie Ljungberg|SWE|1998-2007|RM CM|83
+Gilberto Silva|BRA|2002-2008|CDM|83
+Liam Brady|IRL|1973-1980|CM CAM|86
+Paul Davis|ENG|1979-1995|CM|76
+David Rocastle|ENG|1985-1992|RM|80
+Ray Parlour|ENG|1992-2004|RM CM|77
+Santi Cazorla|ESP|2012-2018|CM CAM|84
+Mesut Özil|GER|2013-2021|CAM|84
+Aaron Ramsey|WAL|2008-2019|CM|80
+Jack Wilshere|ENG|2008-2018|CM CAM|78
+Alexander Hleb|BLR|2005-2008|CAM RM|77
+Tomáš Rosický|CZE|2006-2016|CAM CM|78
+Granit Xhaka|SUI|2016-2023|CM CDM|79
+Thomas Partey|GHA|2020-2025|CDM|81
+Mikel Arteta|ESP|2011-2016|CM CDM|78
+Mathieu Flamini|FRA|2004-2013|CDM|74
+Alex Song|CMR|2005-2012|CDM|75
+George Graham|SCO|1966-1972|CM CAM|79
+Anders Limpar|SWE|1990-1994|LM LW|78
+Kai Havertz|GER|2023-2025|ST CAM|82
+Thierry Henry|FRA|1999-2007|ST LW|96
+Dennis Bergkamp|NED|1995-2006|CAM ST|93
+Ian Wright|ENG|1991-1998|ST|88
+Robin van Persie|NED|2004-2012|ST|89
+Bukayo Saka|ENG|2018-2025|RW|89
+Marc Overmars|NED|1997-2000|LW LM|85
+Nicolas Anelka|FRA|1997-1999|ST|81
+Sylvain Wiltord|FRA|2000-2004|RW ST|80
+Alan Smith|ENG|1987-1995|ST|80
+Charlie George|ENG|1969-1975|ST CAM|80
+Malcolm Macdonald|ENG|1976-1979|ST|78
+Frank Stapleton|IRL|1972-1981|ST|80
+Cliff Bastin|ENG|1929-1947|LW|86
+Ted Drake|ENG|1934-1945|ST|84
+Alexis Sánchez|CHI|2014-2018|LW ST|87
+Pierre-Emerick Aubameyang|GAB|2018-2022|ST LW|85
+Olivier Giroud|FRA|2012-2018|ST|80
+Theo Walcott|ENG|2006-2018|RW|77
+Gabriel Martinelli|BRA|2019-2025|LW|82
+Gabriel Jesus|BRA|2022-2025|ST|78
+Leandro Trossard|BEL|2023-2025|LW|78
+Emmanuel Adebayor|TOG|2006-2009|ST|80
+Kanu|NGA|1999-2004|ST|76
+Eduardo|CRO|2007-2010|ST|72
+Lukas Podolski|GER|2012-2015|LW ST|75
+Andrey Arshavin|RUS|2009-2013|LW|78
+Danny Welbeck|ENG|2014-2019|ST|70
+`;

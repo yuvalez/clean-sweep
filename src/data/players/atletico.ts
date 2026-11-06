@@ -1,0 +1,81 @@
+export default `
+Jan Oblak|SVN|2014-2025|GK|91
+Thibaut Courtois|BEL|2011-2014|GK|87
+David de Gea|ESP|2009-2011|GK|80
+Abel Resino|ESP|1982-1995|GK|82
+Miguel Reina|ESP|1973-1980|GK|78
+José Francisco Molina|ESP|1995-2000|GK|79
+Leo Franco|ARG|2004-2009|GK|72
+Sergio Asenjo|ESP|2009-2013|GK|70
+Germán Burgos|ARG|2001-2004|GK|72
+Edgardo Madinabeytia|ARG|1961-1969|GK|78
+Diego Godín|URU|2010-2019|CB|89
+Juanfran|ESP|2011-2019|RB|83
+Filipe Luís|BRA|2010-2019|LB|85
+Stefan Savić|MNE|2015-2024|CB|81
+José María Giménez|URU|2013-2025|CB|83
+Miranda|BRA|2008-2015|CB|84
+Antonio López|ESP|1999-2012|LB|76
+Luis Perea|COL|2004-2012|CB RB|76
+Tomás Reñones|ESP|1985-1996|RB CB|77
+Juan Carlos Arteche|ESP|1977-1989|CB|79
+Isacio Calleja|ESP|1957-1972|LB|80
+Jorge Griffa|ARG|1959-1969|CB|80
+Santi Denia|ESP|1993-2003|CB|74
+Toni Muñoz|ESP|1988-1997|LB|76
+Kieran Trippier|ENG|2019-2022|RB|81
+Renan Lodi|BRA|2019-2022|LB|76
+Mario Hermoso|ESP|2019-2024|CB LB|78
+Lucas Hernández|FRA|2014-2019|CB LB|80
+Sime Vrsaljko|CRO|2016-2021|RB|75
+Robin Le Normand|ESP|2024-2025|CB|80
+Nahuel Molina|ARG|2022-2025|RB RWB|78
+Pablo Barrios|ESP|2022-2025|CM|78
+Clément Lenglet|FRA|2024-2025|CB|72
+Roberto Solozábal|ESP|1991-1997|CB|76
+Gabi|ESP|2011-2018|CDM CM|84
+Koke|ESP|2009-2025|CM RM|86
+Thomas Partey|GHA|2015-2020|CDM CM|82
+Saúl Ñíguez|ESP|2012-2023|CM LM|82
+Rodrigo De Paul|ARG|2021-2025|CM RM|82
+Arda Turan|TUR|2011-2015|LM CAM|83
+Tiago|POR|2010-2015|CDM CM|80
+Mario Suárez|ESP|2010-2015|CDM|75
+Diego Simeone|ARG|1994-2005|CM CDM|84
+Milinko Pantić|SRB|1995-1998|CAM CM|81
+Vizcaíno|ESP|1987-1995|CDM CM|78
+Adelardo|ESP|1959-1976|CM|84
+Luis Aragonés|ESP|1964-1974|CAM ST|86
+Marcos Llorente|ESP|2019-2025|CM RM RW|82
+Thomas Lemar|FRA|2018-2025|LM CAM|74
+Héctor Herrera|MEX|2019-2022|CM CDM|72
+Raúl García|ESP|2007-2015|CM CAM|76
+Maniche|POR|2006-2007|CM|70
+Juan Valerón|ESP|1998-2000|CAM|76
+Antoine Griezmann|FRA|2014-2025|ST CAM LW|90
+Fernando Torres|ESP|2001-2007|ST|86
+Sergio Agüero|ARG|2006-2011|ST|88
+Diego Forlán|URU|2007-2011|ST|87
+Radamel Falcao|COL|2011-2013|ST|89
+Diego Costa|ESP|2010-2018|ST|86
+Luis Suárez|URU|2020-2022|ST|85
+Paulo Futre|POR|1987-1993|LW RW|87
+Christian Vieri|ITA|1997-1998|ST|86
+Kiko|ESP|1993-2001|ST CAM|80
+Hugo Sánchez|MEX|1981-1985|ST|84
+Manolo|ESP|1988-1995|ST|80
+José Eulogio Gárate|ESP|1966-1977|ST|86
+Rubén Cano|ESP|1976-1984|ST|80
+Lubo Penev|BUL|1995-1997|ST|79
+Julián Álvarez|ARG|2024-2025|ST|87
+Ángel Correa|ARG|2015-2025|RW ST|78
+Yannick Carrasco|BEL|2015-2023|LW LM|80
+Álvaro Morata|ESP|2019-2024|ST|79
+Maxi Rodríguez|ARG|2005-2010|RM RW|78
+Simão|POR|2007-2010|LW RW|79
+José Antonio Reyes|ESP|2008-2011|LW|76
+Adrián López|ESP|2012-2014|ST LW|70
+Kevin Gameiro|FRA|2016-2019|ST|74
+Joaquín Peiró|ESP|1955-1962|ST|80
+Enrique Collar|ESP|1953-1969|LW|83
+`;

@@ -1,0 +1,89 @@
+export default `
+Petr Čech|CZE|2004-2015|GK|91
+Thibaut Courtois|BEL|2014-2018|GK|86
+Édouard Mendy|SEN|2020-2023|GK|82
+Kepa Arrizabalaga|ESP|2018-2025|GK|74
+Peter Bonetti|ENG|1959-1979|GK|80
+Carlo Cudicini|ITA|1999-2009|GK|78
+Ed de Goey|NED|1997-2003|GK|76
+Robert Sánchez|ESP|2023-2025|GK|74
+Dmitri Kharine|RUS|1992-1999|GK|70
+Hilário|POR|2006-2014|GK|62
+John Terry|ENG|1998-2017|CB|91
+Ashley Cole|ENG|2006-2014|LB|88
+Ricardo Carvalho|POR|2004-2010|CB|87
+Branislav Ivanović|SRB|2008-2017|RB CB|83
+Marcel Desailly|FRA|1998-2004|CB CDM|86
+César Azpilicueta|ESP|2012-2023|RB CB LB|84
+Paulo Ferreira|POR|2004-2013|RB|76
+Thiago Silva|BRA|2020-2024|CB|86
+Antonio Rüdiger|GER|2017-2022|CB|83
+Reece James|ENG|2018-2025|RB RWB|82
+Ben Chilwell|ENG|2020-2025|LB LWB|77
+Marcos Alonso|ESP|2016-2022|LWB LB|78
+David Luiz|BRA|2011-2019|CB|82
+Gary Cahill|ENG|2012-2019|CB|80
+Frank Leboeuf|FRA|1996-2001|CB|79
+Graeme Le Saux|ENG|1997-2003|LB|78
+Ron Harris|ENG|1961-1980|CB RB|78
+Marc Cucurella|ESP|2022-2025|LB|80
+Levi Colwill|ENG|2023-2025|CB LB|79
+Wesley Fofana|FRA|2022-2025|CB|76
+Kurt Zouma|FRA|2014-2021|CB|73
+Celestine Babayaro|NGA|1997-2005|LB|74
+Wayne Bridge|ENG|2003-2009|LB|74
+Albert Ferrer|ESP|1998-2003|RB|72
+Alex|BRA|2007-2011|CB|74
+Frank Lampard|ENG|2001-2014|CM CAM|92
+Claude Makélélé|FRA|2003-2008|CDM|89
+Michael Essien|GHA|2005-2014|CM CDM|87
+N'Golo Kanté|FRA|2016-2023|CDM CM|89
+Michael Ballack|GER|2006-2010|CM CAM|84
+Dennis Wise|ENG|1990-2001|CM|80
+Gianfranco Zola|ITA|1996-2003|CAM ST|88
+Mason Mount|ENG|2017-2023|CAM CM|80
+Jorginho|ITA|2018-2023|CDM CM|81
+Mateo Kovačić|CRO|2018-2023|CM|80
+Cesc Fàbregas|ESP|2014-2019|CM CAM|83
+Nemanja Matić|SRB|2014-2017|CDM|80
+Juan Mata|ESP|2011-2014|CAM RW|84
+Oscar|BRA|2012-2017|CAM|78
+Ramires|BRA|2010-2016|CM RM|78
+John Obi Mikel|NGA|2006-2017|CDM|74
+Roberto Di Matteo|ITA|1996-2002|CM|78
+Gustavo Poyet|URU|1997-2001|CAM CM|78
+Ruud Gullit|NED|1995-1998|CAM CB|80
+Cole Palmer|ENG|2023-2025|CAM RW|88
+Enzo Fernández|ARG|2023-2025|CM|83
+Moisés Caicedo|ECU|2023-2025|CDM|86
+Alan Hudson|ENG|1968-1974|CM|78
+John Hollins|ENG|1963-1975|CM|77
+Florent Malouda|FRA|2007-2013|LM LW|80
+Joe Cole|ENG|2003-2010|CAM LM|80
+Damien Duff|IRL|2003-2006|LW RW|81
+Arjen Robben|NED|2004-2007|RW LW|85
+Eden Hazard|BEL|2012-2019|LW CAM|92
+Didier Drogba|CIV|2004-2015|ST|91
+Peter Osgood|ENG|1964-1979|ST|84
+Jimmy Greaves|ENG|1957-1961|ST|86
+Kerry Dixon|ENG|1983-1992|ST|78
+Jimmy Floyd Hasselbaink|NED|2000-2004|ST|84
+Hernán Crespo|ARG|2003-2008|ST|79
+Nicolas Anelka|FRA|2008-2012|ST|81
+Diego Costa|ESP|2014-2017|ST|87
+Willian|BRA|2013-2020|RW|80
+Pedro|ESP|2015-2020|RW LW|78
+Andriy Shevchenko|UKR|2006-2009|ST|73
+Fernando Torres|ESP|2011-2014|ST|74
+Romelu Lukaku|BEL|2021-2022|ST|72
+Olivier Giroud|FRA|2018-2021|ST|76
+Tammy Abraham|ENG|2016-2021|ST|72
+Kai Havertz|GER|2020-2023|ST CAM|76
+Christian Pulisic|USA|2019-2023|LW RW|74
+Gianluca Vialli|ITA|1996-1999|ST|78
+Mark Hughes|WAL|1995-1998|ST|76
+Bobby Tambling|ENG|1959-1970|ST LW|80
+Eidur Gudjohnsen|ISL|2000-2006|ST CAM|78
+Nicolas Jackson|SEN|2023-2025|ST|75
+Noni Madueke|ENG|2023-2025|RW|74
+`;

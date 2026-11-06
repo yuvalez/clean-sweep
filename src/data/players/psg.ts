@@ -1,0 +1,88 @@
+export default `
+Gianluigi Donnarumma|ITA|2021-2025|GK|89
+Keylor Navas|CRC|2019-2024|GK|85
+Salvatore Sirigu|ITA|2011-2017|GK|78
+Bernard Lama|FRA|1992-2000|GK|82
+Dominique Baratelli|FRA|1978-1985|GK|76
+Joël Bats|FRA|1985-1992|GK|80
+Alphonse Areola|FRA|2013-2020|GK|74
+Kevin Trapp|GER|2015-2019|GK|76
+Grégory Coupet|FRA|2009-2011|GK|72
+Mickaël Landreau|FRA|2006-2009|GK|74
+Thiago Silva|BRA|2012-2020|CB|91
+Marquinhos|BRA|2013-2025|CB CDM|88
+Achraf Hakimi|MAR|2021-2025|RB RWB|88
+Nuno Mendes|POR|2021-2025|LB LWB|86
+Maxwell|BRA|2012-2017|LB|78
+Dani Alves|BRA|2017-2019|RB|80
+Presnel Kimpembe|FRA|2014-2024|CB|80
+Serge Aurier|CIV|2014-2017|RB|74
+Layvin Kurzawa|FRA|2015-2024|LB|72
+Thomas Meunier|BEL|2016-2020|RB|74
+Juan Bernat|ESP|2018-2025|LB|76
+Sergio Ramos|ESP|2021-2023|CB|80
+Willian Pacho|ECU|2024-2025|CB|82
+Lucas Hernández|FRA|2023-2025|CB LB|78
+Alain Roche|FRA|1992-1998|CB|80
+Ricardo Gomes|BRA|1991-1995|CB|82
+Patrick Colleter|FRA|1990-1996|LB|74
+Jean-Marc Pilorget|FRA|1975-1989|CB RB|76
+Mamadou Sakho|FRA|2007-2013|CB|74
+Alex|BRA|2012-2014|CB|72
+Gabriel Heinze|ARG|2001-2004|LB CB|78
+Mauricio Pochettino|ARG|2001-2003|CB|74
+Christophe Jallet|FRA|2009-2014|RB|72
+Zoumana Camara|FRA|2007-2015|CB|68
+Marco Verratti|ITA|2012-2023|CM|88
+Blaise Matuidi|FRA|2011-2017|CM LM|82
+Thiago Motta|ITA|2012-2018|CDM|82
+Adrien Rabiot|FRA|2012-2019|CM|78
+Ángel Di María|ARG|2015-2022|RW LW|87
+Javier Pastore|ARG|2011-2018|CAM|80
+Leandro Paredes|ARG|2019-2023|CDM|74
+Vitinha|POR|2022-2025|CM|88
+João Neves|POR|2024-2025|CM|86
+Fabián Ruiz|ESP|2022-2025|CM|82
+Warren Zaïre-Emery|FRA|2021-2025|CM|78
+Raí|BRA|1993-1998|CAM|86
+Valdo|BRA|1991-1995|CM|78
+Vincent Guérin|FRA|1992-1998|CM|78
+Safet Sušić|BIH|1982-1991|CAM|88
+Luis Fernández|FRA|1978-1986|CDM|84
+Claude Makélélé|FRA|2008-2011|CDM|78
+Jay-Jay Okocha|NGA|1998-2002|CAM|82
+Youri Djorkaeff|FRA|1995-1996|CAM|80
+Paul Le Guen|FRA|1991-1998|CDM|77
+Lassana Diarra|FRA|2017-2019|CDM|70
+Idrissa Gueye|SEN|2019-2022|CDM|74
+Julian Draxler|GER|2017-2023|LW CAM|74
+Lucas Moura|BRA|2013-2018|RW|78
+Kylian Mbappé|FRA|2017-2024|ST LW|95
+Neymar|BRA|2017-2023|LW CAM|91
+Lionel Messi|ARG|2021-2023|RW CAM|86
+Zlatan Ibrahimović|SWE|2012-2016|ST|92
+Edinson Cavani|URU|2013-2020|ST|88
+Ronaldinho|BRA|2001-2003|CAM LW|87
+George Weah|LBR|1992-1995|ST|88
+Pauleta|POR|2003-2008|ST|84
+Ousmane Dembélé|FRA|2023-2025|RW ST|92
+Khvicha Kvaratskhelia|GEO|2025-2025|LW|87
+Bradley Barcola|FRA|2023-2025|LW|82
+Désiré Doué|FRA|2024-2025|RW CAM|82
+Gonçalo Ramos|POR|2023-2025|ST|76
+Mustapha Dahleb|ALG|1974-1984|CAM ST|82
+Dominique Rocheteau|FRA|1980-1987|ST RW|82
+Carlos Bianchi|ARG|1977-1979|ST|82
+David Ginola|FRA|1992-1995|LW|86
+Nicolas Anelka|FRA|2000-2002|ST|78
+Mauro Icardi|ARG|2019-2023|ST|78
+Guillaume Hoarau|FRA|2008-2013|ST|70
+Mateja Kežman|SRB|2008-2009|ST|62
+Marcos Ceará|BRA|2007-2012|RB|68
+Jérôme Rothen|FRA|2004-2009|LM|74
+Ezequiel Lavezzi|ARG|2012-2016|LW ST|78
+Kevin Gameiro|FRA|2011-2013|ST|72
+Antoine Kombouaré|FRA|1990-1995|CB|76
+Pablo Sarabia|ESP|2019-2022|RW|72
+Leonardo|BRA|1996-1997|CAM LW|80
+`;
