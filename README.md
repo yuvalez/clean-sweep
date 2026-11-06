@@ -70,7 +70,7 @@ Hosted on Vercel as a static site. `vercel.json` sets the build (`npm test && np
 - Every push to `main` deploys to production. Pull requests get a preview URL. GitHub Actions (`.github/workflows/ci.yml`) runs tests and the build.
 - Rollback: Vercel dashboard → Deployments → pick an earlier deployment → Instant Rollback.
 - When the saved-game shape changes, bump `version` and extend `migrate` in `src/store/gameStore.ts`.
-- `VITE_SITE_URL` (in `.env`) is the absolute URL used for the social-preview image.
+- `VITE_SITE_URL` (in `.env`) is the absolute URL used for the social-preview image. Production: https://clean-sweep-three.vercel.app
 
 ## Adding players or clubs
 
