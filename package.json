@@ -2,6 +2,8 @@
   "name": "clean-sweep",
   "private": true,
   "version": "0.1.0",
+  "author": "Yuval Ezuz",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vite",

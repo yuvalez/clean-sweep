@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { candidateLinks } from '../../engine/chemistry';
+import { candidateCompatriots, candidateLinks } from '../../engine/chemistry';
 import {
   DILEMMA_OPTIONS, JANUARY, januaryBudget, januaryCanSign, optionAvailable, saleValue,
 } from '../../engine/decisions';
@@ -141,6 +141,7 @@ function JanuaryWindow({ s, ev }: { s: SeasonState; ev: DecisionEvent }) {
                   affordable={c.price <= budget + 1e-9 && januaryCanSign(ev, activeSlot.id)}
                   maxAfford={budget}
                   links={activeSlot.kind === 'xi' ? candidateLinks(c, xi) : 0}
+                  compatriots={activeSlot.kind === 'xi' ? candidateCompatriots(c, xi) : 0}
                   onPick={() => {
                     janSign(activeSlot.id, c.uid);
                     setActive(undefined);

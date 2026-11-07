@@ -10,6 +10,10 @@ Super Cup, League (38 games), domestic Cup, European Cup and Club World Cup.
 - Difficulty sets your budget, rerolls, options per scout, and how strong the rival **Legends** sides are.
   Rivals are AI-drafted all-time XIs of the other clubs.
 
+## Copyright
+
+© 2026 Yuval Ezuz. All rights reserved. See [LICENSE](LICENSE).
+
 ## Disclaimer
 
 Unofficial, free, fan-made game. It is not affiliated with, or endorsed by, any club, league or player. Club and player names are used only to identify them. There are no crests or logos, competitions use generic names, and all ratings are this game's own subjective opinion. For feedback or takedown requests, open an issue: https://github.com/yuvalez/clean-sweep/issues
@@ -35,7 +39,7 @@ npm run balance  # Monte Carlo difficulty report: npx tsx scripts/balance.ts [se
 
 | Difficulty | Budget | Rival budget | Clean Sweep (smart AI) | Clean Sweep (naive AI) |
 |---|---|---|---|---|
-| Easy | €600M | €110M | ~44% | ~32% |
+| Easy | €600M | €110M | ~46% | ~34% |
 | Normal | €500M | €160M | ~19% | ~6% |
 | Hard | €430M | €180M | ~4% | ~2% |
 | Legendary | €370M | €190M | ~1.4% | 0% |
@@ -44,7 +48,7 @@ Active era (`npm run balance -- 40 4 all active`; Global mode, current-squad riv
 
 | Difficulty | Budget | Current squads | Clean Sweep (smart AI) | Clean Sweep (naive AI) |
 |---|---|---|---|---|
-| Easy | €600M | −7.5 | ~47% | ~42% |
+| Easy | €600M | −7.5 | ~46% | ~43% |
 | Normal | €500M | −5.5 | ~20% | ~9% |
 | Hard | €430M | −4.5 | ~6% | ~1% |
 | Legendary | €370M | −5 | ~1.3% | 0% |
@@ -53,6 +57,18 @@ The pool is small (198 players), so on Easy almost any draft is strong. Spain is
 
 A human who builds chemistry and uses the "Rotate" policy with a solid bench should beat the smart AI.
 Tune via `src/engine/difficulty.ts` and `SIM` in `src/engine/match.ts`, then rerun `npm run balance`.
+
+## Chemistry
+
+Each starter earns up to **4 points** (`src/engine/chemistry.ts`):
+
+| Source | Points |
+|---|---|
+| Natural (or comfortable) position | +1 |
+| Each former teammate in the XI (overlapping years at the same club) | +1, max 2 |
+| Each player from the same nation anywhere in the XI | +1, max 2 |
+
+Team chemistry = total points ÷ (11 × 4), as 0–100. Every starter's rating gets `chemistry/100 × 5 − 2`, from −2 at 0 to +3 at 100. The pitch draws gold lines between former teammates and dashed blue lines between compatriots side by side. The draft, squad review and season Squad tab show the full player-by-player breakdown.
 
 ## Mid-season decisions
 

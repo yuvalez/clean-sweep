@@ -1,3 +1,4 @@
+import { chemistry } from './chemistry';
 import { DIFFICULTIES, DIFFICULTY_ORDER } from './difficulty';
 import { aiDraft, canAfford, createDraft, emptySlots, isComplete, pick, remaining, reroll, spin } from './draft';
 import {
@@ -13,6 +14,7 @@ import { CLUBS } from '../data/clubs';
 import { createSeason, simulateToEnd, trophies, userRecord } from './season';
 import { sortTable } from './competitions/league';
 import type { SeasonSetup } from './opponents';
+import type { Player } from './types';
 
 function playRandomDraft(seed: string, clubId: string | undefined, formationId: string, diff = DIFFICULTY_ORDER[0]) {
   const cfg = DIFFICULTIES[diff];
@@ -245,5 +247,33 @@ describe('active-players era', () => {
     }
     simulateToEnd(s);
     expect(s.done).toBe(true);
+  });
+});
+
+describe('chemistry', () => {
+  const mk = (id: string, nation: string, pos: Player['pos']): Pick<Player, 'id' | 'nation' | 'pos'> => ({ id, nation, pos });
+  it('counts compatriots anywhere in the XI, up to 2 points', () => {
+    // gk and st are far apart on the pitch but share a nation
+    const xi = { gk: mk('zz-gk', 'ISR', ['GK']), st: mk('zz-st', 'ISR', ['ST']), lw: mk('zz-lw', 'ISR', ['LW']), rw: mk('zz-rw', 'ISR', ['RW']) };
+    const c = chemistry('4-3-3', xi);
+    expect(c.detail.gk).toEqual({ natural: true, teammates: 0, compatriots: 3, points: 3 }); // 1 natural + 2 (capped)
+    expect(c.links.some((l) => (l.a === 'gk' || l.b === 'gk') && l.kind === 'nation')).toBe(false); // not drawn: not adjacent
+  });
+
+  it('stacks teammates and compatriots, capped at 4 per player', () => {
+    const xi = {
+      lcm: mk('xavi-hernandez', 'ESP', ['CM']), cdm: mk('sergio-busquets', 'ESP', ['CDM']), rcm: mk('andres-iniesta', 'ESP', ['CM']),
+    };
+    const c = chemistry('4-3-3', xi);
+    for (const s of ['lcm', 'cdm', 'rcm']) {
+      expect(c.detail[s].teammates).toBe(2);
+      expect(c.detail[s].compatriots).toBe(2);
+      expect(c.detail[s].points).toBe(4);
+    }
+  });
+
+  it('never treats academy players as compatriots', () => {
+    const xi = { lcm: mk('a1', '---', ['CM']), rcm: mk('a2', '---', ['CM']) };
+    expect(chemistry('4-3-3', xi).detail.lcm.compatriots).toBe(0);
   });
 });
