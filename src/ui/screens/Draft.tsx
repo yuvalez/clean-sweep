@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { getClub } from '../../data/clubs';
-import { candidateLinks, chemistry, wereTeammates } from '../../engine/chemistry';
+import { candidateCompatriots, candidateLinks, chemistry, wereTeammates } from '../../engine/chemistry';
 import * as D from '../../engine/draft';
 import { getFormation } from '../../engine/formations';
 import { slotFit } from '../../engine/positions';
@@ -11,6 +11,7 @@ import { ltr, playerName, slotName, teamName, useT, type Dict } from '../../i18n
 import { poolFor, useGame } from '../../store/gameStore';
 import { flag } from '../nations';
 import { Meter, Price, RatingBadge, Stat } from '../components/common';
+import { ChemistryBreakdown } from '../components/Chemistry';
 import { Pitch } from '../components/Pitch';
 
 function fitLabel(t: Dict, fit: number): { text: string; cls: string } {
@@ -20,8 +21,8 @@ function fitLabel(t: Dict, fit: number): { text: string; cls: string } {
 }
 
 export function CandidateCard({
-  p, slot, affordable, maxAfford, links, index, onPick,
-}: { p: Player; slot: Slot; affordable: boolean; maxAfford: number; links: number; index: number; onPick: () => void }) {
+  p, slot, affordable, maxAfford, links, compatriots = 0, index, onPick,
+}: { p: Player; slot: Slot; affordable: boolean; maxAfford: number; links: number; compatriots?: number; index: number; onPick: () => void }) {
   const t = useT();
   const fit = slotFit(p, slot);
   const fl = fitLabel(t, fit);
@@ -55,6 +56,7 @@ export function CandidateCard({
         <div className="flex flex-wrap gap-1">
           {p.bargain && <span className="chip bg-accent/20 text-accent">{t.bargain}</span>}
           {links > 0 && <span className="chip bg-gold/20 text-gold">{t.teammatesChip(links)}</span>}
+          {compatriots > 0 && <span className="chip bg-sky-500/15 text-sky-500">{flag(p.nation)} {t.compatriotsChip(compatriots)}</span>}
         </div>
         <Price m={p.price} className={`display text-2xl ${affordable ? 'text-gold' : 'text-danger'}`} />
       </div>
@@ -181,6 +183,7 @@ export function Draft() {
                         affordable={D.canAfford(draft, c)}
                         maxAfford={maxAfford}
                         links={active.kind === 'xi' ? candidateLinks(c, xiPlayers) : 0}
+                        compatriots={active.kind === 'xi' ? candidateCompatriots(c, xiPlayers) : 0}
                         onPick={() => pick(c.uid)}
                       />
                     ))}
@@ -217,6 +220,7 @@ export function Draft() {
           )}
 
           <SquadList draft={draft} />
+          <ChemistryBreakdown formationId={draft.formationId} picks={draft.picks} chem={chem} collapsible />
         </div>
       </div>
     </div>

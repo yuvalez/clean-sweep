@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { sortTable } from '../../engine/competitions/league';
+import { chemistry } from '../../engine/chemistry';
 import { ratingMod } from '../../engine/decisions';
-import { allSlots, FORMATIONS } from '../../engine/formations';
+import { allSlots, FORMATIONS, getFormation } from '../../engine/formations';
 import { formatPrice } from '../../engine/pricing';
 import { USER_ID } from '../../engine/opponents';
 import { COMP_ORDER, nextUserFixture, userRecord, type SeasonState } from '../../engine/season';
@@ -10,6 +11,7 @@ import { dayLabel, fmtMsg, ltr, playerName, slotName, teamName, useT } from '../
 import { useGame } from '../../store/gameStore';
 import { Bracket, LeagueTable, playerNames, scoreLine, TeamName } from '../components/Competition';
 import { RatingBadge, Segmented, TeamBadge, TROPHY_ICON } from '../components/common';
+import { ChemistryBreakdown } from '../components/Chemistry';
 import { DecisionPanel } from '../components/Decisions';
 import { Pitch } from '../components/Pitch';
 
@@ -330,6 +332,12 @@ function SquadTab({ s, rotation, setRotation }: { s: SeasonState; rotation: Rota
           />
           <p className="mt-2 text-xs text-muted">{t.rotation[rotation].desc}</p>
         </div>
+        <ChemistryBreakdown
+          formationId={squad.formationId}
+          picks={squad.picks}
+          chem={chemistry(getFormation(squad.formationId), Object.fromEntries(getFormation(squad.formationId).slots.map((x) => [x.id, squad.picks[x.id]])))}
+          collapsible
+        />
         <div className="panel overflow-x-auto p-3">
           <table className="w-full text-sm tabular">
             <thead>
@@ -397,7 +405,7 @@ function TacticsPanel({ s }: { s: SeasonState }) {
           <button
             key={f.id}
             onClick={() => changeFormation(f.id)}
-            className={`display rounded-lg border px-1 py-1.5 text-lg transition ${f.id === current ? 'border-accent bg-accent/15 text-accent' : 'border-line bg-panel2 text-muted hover:border-accent/60 hover:text-ink'}`}
+            className={`display whitespace-nowrap rounded-lg border px-1 py-1.5 text-lg transition ${f.id === current ? 'border-accent bg-accent/15 text-accent' : 'border-line bg-panel2 text-muted hover:border-accent/60 hover:text-ink'}`}
           >
             {f.name}
           </button>
