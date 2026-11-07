@@ -10,6 +10,7 @@ import { ErrorBoundary } from './ui/components/ErrorBoundary';
 import { Summary } from './ui/screens/Summary';
 
 export const REPO_URL = 'https://github.com/yuvalez/clean-sweep';
+const COPYRIGHT_YEAR = 2026;
 
 export default function App() {
   const { screen, draft, season, goto, lang, setLang } = useGame();
@@ -63,9 +64,13 @@ export default function App() {
       </ErrorBoundary>
       <footer className="mx-auto max-w-5xl px-4 pb-8 pt-2 text-center text-[11px] leading-relaxed text-muted">
         <p>{t.disclaimer}</p>
-        <a className="underline hover:text-ink" href={`${REPO_URL}/issues`} target="_blank" rel="noopener noreferrer">
-          {t.contact}
-        </a>
+        <p className="mt-1">
+          <span>{t.copyright(COPYRIGHT_YEAR)}</span>
+          {' · '}
+          <a className="underline hover:text-ink" href={`${REPO_URL}/issues`} target="_blank" rel="noopener noreferrer">
+            {t.contact}
+          </a>
+        </p>
       </footer>
     </div>
   );

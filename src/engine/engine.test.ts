@@ -1,3 +1,4 @@
+import { chemistry } from './chemistry';
 import { DIFFICULTIES, DIFFICULTY_ORDER } from './difficulty';
 import { aiDraft, canAfford, createDraft, emptySlots, isComplete, pick, remaining, reroll, spin } from './draft';
 import {
@@ -6,13 +7,14 @@ import {
 } from './decisions';
 import { FORMATIONS, getFormation } from './formations';
 import { oddsRun } from './odds';
-import { slotFit } from './positions';
-import { buildPool } from './pool';
+import { positionFit, slotFit } from './positions';
+import { buildPool, latestSeason } from './pool';
 import { createRng } from './rng';
 import { CLUBS } from '../data/clubs';
 import { createSeason, simulateToEnd, trophies, userRecord } from './season';
 import { sortTable } from './competitions/league';
 import type { SeasonSetup } from './opponents';
+import type { Player } from './types';
 
 function playRandomDraft(seed: string, clubId: string | undefined, formationId: string, diff = DIFFICULTY_ORDER[0]) {
   const cfg = DIFFICULTIES[diff];
@@ -192,5 +194,86 @@ describe('mid-season decisions', () => {
         expect(bp.rating + slotFit(bp, slot)).toBeLessThanOrEqual(cur.rating + slotFit(cur, slot) + 1e-9);
       }
     }
+  });
+});
+
+describe('active-players era', () => {
+  it('pools only current players, rated at their current club', () => {
+    const pool = buildPool('global', undefined, 'act', 'active');
+    const y = latestSeason();
+    expect(pool.length).toBeGreaterThan(150);
+    expect(new Set(pool.map((p) => p.id)).size).toBe(pool.length);
+    for (const p of pool) expect(p.to).toBe(y);
+  });
+
+  it('has real depth at every position of every formation', () => {
+    const pool = buildPool('global', undefined, 'act', 'active');
+    for (const f of FORMATIONS) {
+      for (const slot of f.slots) {
+        const elig = pool.filter((p) => positionFit(p.pos, slot.pos!) >= -4);
+        expect(elig.length, `${f.id} ${slot.pos}`).toBeGreaterThanOrEqual(6);
+        expect(elig.some((p) => p.rating >= 85), `${f.id} ${slot.pos} star`).toBe(true);
+      }
+    }
+  });
+
+  it('never softlocks a draft on the active budget', () => {
+    for (const diff of DIFFICULTY_ORDER) {
+      for (const f of FORMATIONS) {
+        const cfg = { ...DIFFICULTIES[diff], budget: DIFFICULTIES[diff].activeBudget };
+        const pool = buildPool('global', undefined, `a-${diff}-${f.id}`, 'active');
+        const sq = aiDraft(pool, f.id, cfg, `a-${diff}-${f.id}`, 'naive');
+        expect(Object.values(sq.picks).filter(Boolean)).toHaveLength(16);
+        expect(Object.values(sq.picks).reduce((a, p) => a + p!.price, 0)).toBeLessThanOrEqual(cfg.budget + 1e-9);
+      }
+    }
+  });
+
+  it('makes the big clubs field their current squads', () => {
+    const pool = buildPool('global', undefined, 'act-season', 'active');
+    const squad = aiDraft(pool, '4-3-3', DIFFICULTIES.normal, 'act-season', 'smart');
+    const s = createSeason(
+      { mode: 'global', era: 'active', country: 'ENG', difficulty: 'normal', seed: 'act-season', squad, teamName: 'World XI', teamShort: 'WXI', color: '#34d399', color2: '#0f172a' },
+      'balanced',
+    );
+    const clubs = CLUBS.map((c) => s.world.teams[c.id]);
+    const y = latestSeason();
+    for (const t of clubs) {
+      expect(t.kind).toBe('current');
+      const real = Object.values(t.squad!.picks).filter((p) => p!.club !== 'academy');
+      expect(real.length).toBeGreaterThanOrEqual(10);
+      for (const p of real) expect(p!.to).toBe(y);
+      expect(new Set(Object.values(t.squad!.picks).map((p) => p!.uid)).size).toBe(16);
+    }
+    simulateToEnd(s);
+    expect(s.done).toBe(true);
+  });
+});
+
+describe('chemistry', () => {
+  const mk = (id: string, nation: string, pos: Player['pos']): Pick<Player, 'id' | 'nation' | 'pos'> => ({ id, nation, pos });
+  it('counts compatriots anywhere in the XI, up to 2 points', () => {
+    // gk and st are far apart on the pitch but share a nation
+    const xi = { gk: mk('zz-gk', 'ISR', ['GK']), st: mk('zz-st', 'ISR', ['ST']), lw: mk('zz-lw', 'ISR', ['LW']), rw: mk('zz-rw', 'ISR', ['RW']) };
+    const c = chemistry('4-3-3', xi);
+    expect(c.detail.gk).toEqual({ natural: true, teammates: 0, compatriots: 3, points: 3 }); // 1 natural + 2 (capped)
+    expect(c.links.some((l) => (l.a === 'gk' || l.b === 'gk') && l.kind === 'nation')).toBe(false); // not drawn: not adjacent
+  });
+
+  it('stacks teammates and compatriots, capped at 4 per player', () => {
+    const xi = {
+      lcm: mk('xavi-hernandez', 'ESP', ['CM']), cdm: mk('sergio-busquets', 'ESP', ['CDM']), rcm: mk('andres-iniesta', 'ESP', ['CM']),
+    };
+    const c = chemistry('4-3-3', xi);
+    for (const s of ['lcm', 'cdm', 'rcm']) {
+      expect(c.detail[s].teammates).toBe(2);
+      expect(c.detail[s].compatriots).toBe(2);
+      expect(c.detail[s].points).toBe(4);
+    }
+  });
+
+  it('never treats academy players as compatriots', () => {
+    const xi = { lcm: mk('a1', '---', ['CM']), rcm: mk('a2', '---', ['CM']) };
+    expect(chemistry('4-3-3', xi).detail.lcm.compatriots).toBe(0);
   });
 });

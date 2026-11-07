@@ -43,9 +43,9 @@ export function Formation() {
             className="panel group flex flex-col items-stretch justify-start p-3 text-start transition hover:-translate-y-0.5 hover:border-accent"
           >
             <MiniPitch id={f.id} />
-            <div className="mt-2 flex items-baseline justify-between gap-2">
-              <span className="display text-3xl" dir="ltr">{f.name}</span>
-              <span className="text-[11px] text-muted">
+            <div className="mt-2 flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
+              <span className="display whitespace-nowrap text-3xl leading-none" dir="ltr">{f.name}</span>
+              <span className="whitespace-nowrap text-[11px] text-muted">
                 {t.atk} {ltr(`${f.attMod >= 0 ? '+' : ''}${f.attMod}`)} · {t.def} {ltr(`${f.defMod >= 0 ? '+' : ''}${f.defMod}`)}
               </span>
             </div>

@@ -6,8 +6,9 @@ import { COMP_ORDER } from '../../engine/season';
 import { squadStrength } from '../../engine/strength';
 import type { RotationPolicy } from '../../engine/types';
 import { teamName, useT } from '../../i18n';
-import { teamIdentity, useGame } from '../../store/gameStore';
+import { eraOf, teamIdentity, useGame } from '../../store/gameStore';
 import { Stat, TROPHY_ICON } from '../components/common';
+import { ChemistryBreakdown } from '../components/Chemistry';
 import { Pitch } from '../components/Pitch';
 
 export function Review() {
@@ -31,7 +32,7 @@ export function Review() {
         <Pitch formationId={squad.formationId} picks={squad.picks} chem={chem} locked />
         <div className="flex flex-col gap-4">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wider text-accent">{t.diff[config.difficulty].label} · <span dir="ltr">{f.name}</span></div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-accent">{t.diff[config.difficulty].label} · <span dir="ltr" className="whitespace-nowrap">{f.name}</span></div>
             <h1 className="display text-5xl leading-none">{teamName(t, id.teamName)}</h1>
             <p className="mt-2 italic text-muted">{t.pundit(s.overall, chem.score)}</p>
           </div>
@@ -42,6 +43,7 @@ export function Review() {
             <Stat label={t.chemistry} value={chem.score} tone="gold" />
             <Stat label={t.spent} value={formatPrice(spent)} sub={t.unused(formatPrice(draft.budget - spent))} />
           </div>
+          <ChemistryBreakdown formationId={squad.formationId} picks={squad.picks} chem={chem} collapsible />
           <div className="panel p-4">
             <div className="mb-2 font-semibold">{t.squadRotation}</div>
             <div className="grid gap-2 sm:grid-cols-3">
@@ -60,7 +62,7 @@ export function Review() {
           </div>
           <div className="panel p-4 text-sm text-muted">
             <div className="mb-1 font-semibold text-ink">{t.seasonAhead}</div>
-            {t.seasonAheadDesc(COMP_ORDER.map((c) => `${TROPHY_ICON[c]} ${t.comp(c, id.country)}`).join(t.flowArrow))}
+            {(eraOf(config) === 'active' ? t.seasonAheadDescActive : t.seasonAheadDesc)(COMP_ORDER.map((c) => `${TROPHY_ICON[c]} ${t.comp(c, id.country)}`).join(t.flowArrow))}
           </div>
           <button className="btn-primary py-4 text-lg" onClick={startSeason}>
             {t.kickOff}

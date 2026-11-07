@@ -11,7 +11,7 @@ import { dailySeed } from '../engine/rng';
 import {
   advanceDay, advanceToNextUserMatch, createSeason, simulateToEnd, trophies, userRecord, type SeasonState,
 } from '../engine/season';
-import type { CompId, Difficulty, Mentality, Mode, Player, RotationPolicy } from '../engine/types';
+import type { CompId, Difficulty, Era, Mentality, Mode, Player, RotationPolicy } from '../engine/types';
 
 export type Screen = 'home' | 'formation' | 'draft' | 'review' | 'season' | 'summary';
 export type Lang = 'en' | 'he';
@@ -33,6 +33,8 @@ export interface Config {
   customSeed: string;
   teamName: string;
   decisions: boolean;
+  /** Global mode only: all-time pool or active players. */
+  era: Era;
 }
 
 export interface HallEntry {
@@ -41,6 +43,7 @@ export interface HallEntry {
   team: string;
   color: string;
   mode: Mode;
+  era?: Era;
   difficulty: Difficulty;
   seed: string;
   won: CompId[];
@@ -111,12 +114,18 @@ const safeStorage: StateStorage = {
   },
 };
 
+/** The era actually in play: only Global mode offers the active-players pool. */
+export function eraOf(config: Pick<Config, 'mode' | 'era'>): Era {
+  return config.mode === 'global' && config.era === 'active' ? 'active' : 'allTime';
+}
+
 const poolCache = new Map<string, Player[]>();
-export function poolFor(config: Pick<Config, 'mode' | 'clubId'>, seed: string): Player[] {
-  const key = `${config.mode}|${config.clubId}|${seed}`;
+export function poolFor(config: Pick<Config, 'mode' | 'clubId' | 'era'>, seed: string): Player[] {
+  const era = eraOf(config);
+  const key = `${config.mode}|${config.clubId}|${era}|${seed}`;
   let p = poolCache.get(key);
   if (!p) {
-    p = buildPool(config.mode, config.mode === 'club' ? config.clubId : undefined, seed);
+    p = buildPool(config.mode, config.mode === 'club' ? config.clubId : undefined, seed, era);
     poolCache.set(key, p);
   }
   return p;
@@ -127,7 +136,7 @@ function randomSeed(): string {
 }
 
 function resolveSeed(c: Config): string {
-  if (c.seedMode === 'daily') return `${dailySeed()}-${c.mode === 'club' ? c.clubId : `g-${c.country}`}-${c.difficulty}`;
+  if (c.seedMode === 'daily') return `${dailySeed()}-${c.mode === 'club' ? c.clubId : `g-${c.country}${eraOf(c) === 'active' ? '-active' : ''}`}-${c.difficulty}`;
   if (c.seedMode === 'custom' && c.customSeed.trim()) return c.customSeed.trim();
   return randomSeed();
 }
@@ -172,6 +181,7 @@ export const useGame = create<GameState>()(
         customSeed: '',
         teamName: '',
         decisions: true,
+        era: 'allTime',
       },
       seed: '',
       rotation: 'balanced',
@@ -189,7 +199,9 @@ export const useGame = create<GameState>()(
 
       chooseFormation: (formationId) => {
         const { config, seed } = get();
-        set({ draft: D.createDraft(formationId, DIFFICULTIES[config.difficulty], seed), screen: 'draft' });
+        const cfg = DIFFICULTIES[config.difficulty];
+        const budget = eraOf(config) === 'active' ? cfg.activeBudget : cfg.budget;
+        set({ draft: D.createDraft(formationId, { ...cfg, budget }, seed), screen: 'draft' });
       },
 
       spin: (slotId) => {
@@ -223,6 +235,7 @@ export const useGame = create<GameState>()(
           seed,
           squad: D.toSquad(draft),
           decisions: config.decisions !== false,
+          era: eraOf(config),
           ...teamIdentity(config),
         };
         set({ season: createSeason(setup, rotation), screen: 'season' });
@@ -323,6 +336,7 @@ export function saveToHall(): void {
     team: s.setup.teamName,
     color: s.setup.color,
     mode: s.setup.mode,
+    era: s.setup.era,
     difficulty: s.setup.difficulty,
     seed: st.seed,
     won: trophies(s),

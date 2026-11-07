@@ -3,6 +3,7 @@ import { CLUBS, type Country } from '../../data/clubs';
 import { LEAGUES } from '../../data/leagues';
 import { stintsForClub } from '../../data/players';
 import { DIFFICULTIES, DIFFICULTY_ORDER } from '../../engine/difficulty';
+import { latestSeason } from '../../engine/pool';
 import { formatPrice } from '../../engine/pricing';
 import { dailySeed } from '../../engine/rng';
 import type { Difficulty } from '../../engine/types';
@@ -98,6 +99,17 @@ export function Home() {
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
+            <div className="sm:col-span-2">
+              <div className="mb-2 text-sm font-semibold text-muted">{t.eraLabel}</div>
+              <Segmented
+                value={config.era === 'active' ? 'active' : 'allTime'}
+                onChange={(era) => configure({ era })}
+                options={[
+                  { value: 'allTime', label: t.eraAllTime, sub: t.eraAllTimeSub },
+                  { value: 'active', label: t.eraActive, sub: t.eraActiveSub(latestSeason()) },
+                ]}
+              />
+            </div>
             <div>
               <div className="mb-2 text-sm font-semibold text-muted">{t.yourLeague}</div>
               <div className="grid grid-cols-5 gap-1.5">
@@ -227,7 +239,7 @@ export function Home() {
                 <li key={h.id + h.date} className="flex items-center justify-between gap-2 rounded-lg bg-panel2 px-3 py-2 text-sm">
                   <div className="min-w-0">
                     <div className="truncate font-semibold">
-                      {teamName(t, h.team)} <span className="text-xs font-normal text-muted">· {t.diff[h.difficulty].label}</span>
+                      {teamName(t, h.team)} <span className="text-xs font-normal text-muted">· {t.diff[h.difficulty].label}{h.era === 'active' && ` · ${t.eraActiveTag}`}</span>
                     </div>
                     <div className="text-[11px] text-muted">
                       {t.hallLine(h.record, h.leagueRecord)}
