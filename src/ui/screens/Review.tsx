@@ -6,7 +6,7 @@ import { COMP_ORDER } from '../../engine/season';
 import { squadStrength } from '../../engine/strength';
 import type { RotationPolicy } from '../../engine/types';
 import { teamName, useT } from '../../i18n';
-import { teamIdentity, useGame } from '../../store/gameStore';
+import { eraOf, teamIdentity, useGame } from '../../store/gameStore';
 import { Stat, TROPHY_ICON } from '../components/common';
 import { Pitch } from '../components/Pitch';
 
@@ -60,7 +60,7 @@ export function Review() {
           </div>
           <div className="panel p-4 text-sm text-muted">
             <div className="mb-1 font-semibold text-ink">{t.seasonAhead}</div>
-            {t.seasonAheadDesc(COMP_ORDER.map((c) => `${TROPHY_ICON[c]} ${t.comp(c, id.country)}`).join(t.flowArrow))}
+            {(eraOf(config) === 'active' ? t.seasonAheadDescActive : t.seasonAheadDesc)(COMP_ORDER.map((c) => `${TROPHY_ICON[c]} ${t.comp(c, id.country)}`).join(t.flowArrow))}
           </div>
           <button className="btn-primary py-4 text-lg" onClick={startSeason}>
             {t.kickOff}

@@ -231,7 +231,7 @@ export function Season() {
         <div className="panel p-4">
           <div className="mb-2 flex items-center justify-between">
             <div className="font-semibold">{t.comp('league', s.setup.country)}</div>
-            <div className="text-xs text-muted">{t.leagueLegend}</div>
+            <div className="text-xs text-muted">{s.setup.era === 'active' ? t.leagueLegendCurrent : t.leagueLegend}</div>
           </div>
           <LeagueTable s={s} rows={s.league.table} highlight={s.world.rivalIds} />
         </div>

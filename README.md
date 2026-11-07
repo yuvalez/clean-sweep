@@ -4,7 +4,9 @@ Draft a football team on a budget from random scouting options, then try to win 
 Super Cup, League (38 games), domestic Cup, European Cup and Club World Cup.
 
 - **Club Legends** mode: draft from one club's all-time players (14 clubs, ~1,250 player stints).
-- **Global** mode: draft from everyone, play in a league of your choice.
+- **Global** mode: draft from everyone, play in a league of your choice. Choose the player era:
+  - **All-time**: every player's best stint. Rivals are AI-drafted all-time Legends sides.
+  - **Active**: only players at a club in the latest season of the data (2025), rated at their current club. The big clubs field their real current squads, each in the formation that suits it best.
 - Difficulty sets your budget, rerolls, options per scout, and how strong the rival **Legends** sides are.
   Rivals are AI-drafted all-time XIs of the other clubs.
 
@@ -37,6 +39,17 @@ npm run balance  # Monte Carlo difficulty report: npx tsx scripts/balance.ts [se
 | Normal | €500M | €160M | ~19% | ~6% |
 | Hard | €430M | €180M | ~4% | ~2% |
 | Legendary | €370M | €190M | ~1.4% | 0% |
+
+Active era (`npm run balance -- 40 4 all active`; Global mode, current-squad rivals, offsets in `currentBoost`):
+
+| Difficulty | Budget | Current squads | Clean Sweep (smart AI) | Clean Sweep (naive AI) |
+|---|---|---|---|---|
+| Easy | €600M | −7.5 | ~47% | ~42% |
+| Normal | €500M | −5.5 | ~20% | ~9% |
+| Hard | €430M | −4.5 | ~6% | ~1% |
+| Legendary | €370M | −5 | ~1.3% | 0% |
+
+The pool is small (198 players), so on Easy almost any draft is strong. Spain is the hardest league, with today's Real Madrid and Barcelona as domestic rivals.
 
 A human who builds chemistry and uses the "Rotate" policy with a solid bench should beat the smart AI.
 Tune via `src/engine/difficulty.ts` and `SIM` in `src/engine/match.ts`, then rerun `npm run balance`.

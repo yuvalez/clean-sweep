@@ -72,7 +72,7 @@ export function Draft() {
   const t = useT();
   const [revealing, setRevealing] = useState(false);
   const scoutRef = useRef<HTMLDivElement>(null);
-  const pool = useMemo(() => poolFor(config, seed), [config.mode, config.clubId, seed]); // eslint-disable-line react-hooks/exhaustive-deps
+  const pool = useMemo(() => poolFor(config, seed), [config.mode, config.clubId, config.era, seed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!draft?.activeSlotId) return;
@@ -99,7 +99,7 @@ export function Draft() {
   const emptyXi = empties.filter((s) => s.kind === 'xi').length;
   const emptyBench = empties.length - emptyXi;
   const guide = emptyXi > 0 ? Math.max(MIN_PRICE, (remaining - emptyBench * 3) / emptyXi) : remaining / Math.max(1, emptyBench);
-  const poolLabel = config.mode === 'club' ? t.poolClub(teamName(t, getClub(config.clubId).name)) : t.poolGlobal;
+  const poolLabel = config.mode === 'club' ? t.poolClub(teamName(t, getClub(config.clubId).name)) : config.era === 'active' ? t.poolGlobalActive : t.poolGlobal;
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16 pt-4">

@@ -218,7 +218,7 @@ export function initSeason(setup: SeasonSetup, world: TeamWorld, matchSeed: stri
     news: [],
     done: false,
     decisions: [],
-    bank: initialBank(setup.squad, setup.difficulty),
+    bank: initialBank(setup.squad, setup.difficulty, setup.era),
     mentality: 'balanced',
     tacticsLog: [],
     mods: [],

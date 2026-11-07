@@ -8,14 +8,16 @@
 import { DIFFICULTIES } from './difficulty';
 import { academyPlayer, rollCandidates, spent, type DraftState } from './draft';
 import { allSlots, BENCH_SLOTS, getFormation } from './formations';
-import { refreshUserStrength, USER_ID } from './opponents';
+import { isClubSide, refreshUserStrength, USER_ID } from './opponents';
 import { buildPool } from './pool';
-import { slotFit } from './positions';
+import { assignToFormation, benchFrom } from './assign';
 import { roundPrice } from './pricing';
+
+export { assignToFormation } from './assign';
 import { createRng, deriveSeed } from './rng';
 import type { DayDesc, SeasonState } from './season';
 import type {
-  DecisionEvent, DilemmaKey, Difficulty, Mentality, Modifier, Picks, Player, PlayerSeasonState, Signing, Slot, Squad,
+  DecisionEvent, DilemmaKey, Difficulty, Era, Mentality, Modifier, Picks, Player, PlayerSeasonState, Signing, Slot, Squad,
 } from './types';
 
 // ---------------------------------------------------------------------------
@@ -56,8 +58,9 @@ export const DILEMMA_OPTIONS: Record<DilemmaKey, string[]> = {
 // Setup
 // ---------------------------------------------------------------------------
 
-export function initialBank(squad: Squad, difficulty: Difficulty): number {
-  const left = Math.max(0, DIFFICULTIES[difficulty].budget - spent(squad.picks));
+export function initialBank(squad: Squad, difficulty: Difficulty, era: Era = 'allTime'): number {
+  const cfg = DIFFICULTIES[difficulty];
+  const left = Math.max(0, (era === 'active' ? cfg.activeBudget : cfg.budget) - spent(squad.picks));
   return money(left + JANUARY.board[difficulty]);
 }
 
@@ -181,7 +184,7 @@ function open(state: SeasonState, ev: DecisionEvent): void {
       const bench = BENCH_SLOTS.map((slot) => ({ slot, p: sq.picks[slot.id]! })).filter(({ p }) => p.club !== 'academy');
       const target = bench.sort((a, b) => b.p.rating - a.p.rating)[0];
       if (!target) return skip();
-      const bidders = state.world.euroIds.filter((id) => id !== USER_ID && state.world.teams[id].kind === 'legends');
+      const bidders = state.world.euroIds.filter((id) => id !== USER_ID && isClubSide(state.world.teams[id]));
       ev.ctx = {
         a: target.p.uid,
         slotId: target.slot.id,
@@ -336,11 +339,11 @@ export function resolveDecision(state: SeasonState, id: string, opt: string): vo
 
 const poolCache = new Map<string, Player[]>();
 function poolOf(state: SeasonState): Player[] {
-  const { mode, clubId, seed } = state.setup;
-  const key = `${mode}|${clubId}|${seed}`;
+  const { mode, clubId, seed, era } = state.setup;
+  const key = `${mode}|${clubId}|${seed}|${era}`;
   let p = poolCache.get(key);
   if (!p) {
-    p = buildPool(mode, mode === 'club' ? clubId : undefined, seed);
+    p = buildPool(mode, mode === 'club' ? clubId : undefined, seed, state.setup.era);
     poolCache.set(key, p);
   }
   return p;
@@ -419,50 +422,6 @@ export function closeJanuary(state: SeasonState): void {
 // Tactics
 // ---------------------------------------------------------------------------
 
-/**
- * Pick the best XI for a formation from `players` (maximising rating + position fit).
- * Greedy start, then improving swaps between slots and with unused players until stable.
- */
-export function assignToFormation(players: Player[], formationId: string): { picks: Picks; unused: Player[] } {
-  const slots = getFormation(formationId).slots;
-  const val = (p: Player, s: Slot) => p.rating + slotFit(p, s);
-  const pairs = slots.flatMap((s) => players.map((p) => ({ s, p, v: val(p, s) }))).sort((a, b) => b.v - a.v);
-  const bySlot = new Map<string, Player>();
-  const used = new Set<string>();
-  for (const { s, p } of pairs) {
-    if (bySlot.has(s.id) || used.has(p.uid)) continue;
-    bySlot.set(s.id, p);
-    used.add(p.uid);
-  }
-  let unused = players.filter((p) => !used.has(p.uid));
-  let improved = true;
-  while (improved) {
-    improved = false;
-    for (const a of slots) {
-      for (const b of slots) {
-        if (a.id >= b.id) continue;
-        const pa = bySlot.get(a.id)!;
-        const pb = bySlot.get(b.id)!;
-        if (val(pb, a) + val(pa, b) > val(pa, a) + val(pb, b) + 1e-9) {
-          bySlot.set(a.id, pb);
-          bySlot.set(b.id, pa);
-          improved = true;
-        }
-      }
-      for (const u of unused) {
-        const cur = bySlot.get(a.id)!;
-        if (val(u, a) > val(cur, a) + 1e-9) {
-          bySlot.set(a.id, u);
-          unused = [...unused.filter((x) => x !== u), cur];
-          improved = true;
-          break;
-        }
-      }
-    }
-  }
-  return { picks: Object.fromEntries(slots.map((s) => [s.id, bySlot.get(s.id)])), unused };
-}
-
 function applyFormation(state: SeasonState, formationId: string): void {
   const sq = userSquad(state);
   if (sq.formationId === formationId) return;
@@ -471,15 +430,7 @@ function applyFormation(state: SeasonState, formationId: string): void {
   const otherBench = BENCH_SLOTS.filter((s) => s !== keeperSlot);
   const xi = getFormation(sq.formationId).slots.map((s) => sq.picks[s.id]!);
   const { picks, unused } = assignToFormation([...xi, ...otherBench.map((s) => sq.picks[s.id]!)], formationId);
-  // Fill the bench slots, matching each slot's role to a player's main line where possible.
-  const line = { DEF: ['LB', 'RB', 'CB', 'LWB', 'RWB'], MID: ['CDM', 'CM', 'CAM', 'LM', 'RM'], ATT: ['LW', 'RW', 'ST'] } as Record<string, string[]>;
-  let left = [...unused];
-  const bench: Picks = { [keeperSlot.id]: sq.picks[keeperSlot.id] };
-  for (const slot of otherBench) {
-    const match = left.find((p) => line[slot.role!]?.includes(p.pos[0])) ?? left[0];
-    bench[slot.id] = match;
-    left = left.filter((p) => p !== match);
-  }
+  const bench: Picks = { [keeperSlot.id]: sq.picks[keeperSlot.id], ...benchFrom(unused, otherBench) };
   setSquad(state, { formationId, picks: { ...picks, ...bench } });
 }
 

@@ -61,7 +61,11 @@ export interface TeamStrength {
   overall: number;
 }
 
-export type TeamKind = 'user' | 'legends' | 'filler';
+/** legends = AI-drafted all-time club side; current = a club's current squad (active era). */
+export type TeamKind = 'user' | 'legends' | 'current' | 'filler';
+
+/** Global mode player pool: everyone who ever played, or only players at a club in the latest season. */
+export type Era = 'allTime' | 'active';
 
 export interface Team {
   id: string;

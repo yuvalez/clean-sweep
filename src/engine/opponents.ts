@@ -1,13 +1,14 @@
 import { CLUBS, getClub, type Country } from '../data/clubs';
 import { EURO_FILLER, EURO_LEAGUE_QUALIFIERS, LEAGUES, WORLD_FILLER, type FillerDef } from '../data/leagues';
 import { slugify } from '../data/players';
+import { assignToFormation, benchFrom } from './assign';
 import { DIFFICULTIES } from './difficulty';
 import { aiDraft } from './draft';
 import { FORMATIONS } from './formations';
 import { buildPool } from './pool';
 import { createRng, deriveSeed, type Rng } from './rng';
 import { squadStrength } from './strength';
-import type { Difficulty, Mode, Squad, Team, TeamStrength } from './types';
+import type { Difficulty, Era, Mode, Squad, Team, TeamStrength } from './types';
 
 export interface SeasonSetup {
   mode: Mode;
@@ -18,6 +19,8 @@ export interface SeasonSetup {
   squad: Squad;
   teamName: string;
   teamShort: string;
+  /** Global mode player pool (default all-time). Active era also makes rival clubs field their current squads. */
+  era?: Era;
   /** Mid-season decisions (dilemmas, January window, tactics). */
   decisions?: boolean;
   color: string;
@@ -78,6 +81,37 @@ export function legendsTeam(clubId: string, difficulty: Difficulty, seed: string
   };
 }
 
+/** A club's real current squad, in whichever formation gets the most out of it. */
+export function currentTeam(clubId: string, difficulty: Difficulty, seed: string): Team {
+  const club = getClub(clubId);
+  const boost = DIFFICULTIES[difficulty].currentBoost;
+  const pool = buildPool('club', clubId, deriveSeed(seed, `current-price:${clubId}`), 'active');
+  let best: { squad: Squad; overall: number } | undefined;
+  for (const f of FORMATIONS) {
+    const { picks, unused } = assignToFormation(pool, f.id);
+    const squad: Squad = { formationId: f.id, picks: { ...picks, ...benchFrom(unused) } };
+    const overall = squadStrength(squad).overall;
+    if (!best || overall > best.overall + 1e-9) best = { squad, overall };
+  }
+  const s = squadStrength(best!.squad);
+  return {
+    id: club.id,
+    name: club.name,
+    short: club.short,
+    color: club.color,
+    color2: club.color2,
+    kind: 'current',
+    country: club.country,
+    strength: { att: s.att + boost, def: s.def + boost, gk: s.gk + boost, overall: s.overall + boost },
+    squad: best!.squad,
+  };
+}
+
+/** A dataset club's side: all-time legends, or its current squad in the active era. */
+export function isClubSide(t: Pick<Team, 'kind'>): boolean {
+  return t.kind === 'legends' || t.kind === 'current';
+}
+
 export function buildWorld(setup: SeasonSetup): TeamWorld {
   const cfg = DIFFICULTIES[setup.difficulty];
   const rng = createRng(deriveSeed(setup.seed, 'world'));
@@ -102,7 +136,9 @@ export function buildWorld(setup: SeasonSetup): TeamWorld {
 
   // Every dataset club except the user's becomes an AI-drafted Legends side.
   const legendClubs = CLUBS.filter((c) => c.id !== setup.clubId || setup.mode === 'global');
-  for (const c of legendClubs) add(legendsTeam(c.id, setup.difficulty, setup.seed));
+  for (const c of legendClubs) {
+    add(setup.era === 'active' ? currentTeam(c.id, setup.difficulty, setup.seed) : legendsTeam(c.id, setup.difficulty, setup.seed));
+  }
   const legendOveralls = legendClubs.map((c) => teams[c.id].strength.overall).sort((a, b) => a - b);
   const legendMedian = legendOveralls[Math.floor(legendOveralls.length / 2)];
 
@@ -126,7 +162,7 @@ export function buildWorld(setup: SeasonSetup): TeamWorld {
   // European Cup: user + all Legends + top non-dataset clubs of each league + continental filler.
   // Eight Legends sides qualify: the domestic rivals plus six more drawn at random.
   const otherLegends = rng.shuffle(legendClubs.map((c) => c.id).filter((id) => !rivalIds.includes(id)));
-  const euroLegends = [...rivalIds.filter((id) => teams[id].kind === 'legends'), ...otherLegends].slice(0, 8);
+  const euroLegends = [...rivalIds.filter((id) => isClubSide(teams[id])), ...otherLegends].slice(0, 8);
   const euroIds = [USER_ID, ...euroLegends];
   for (const [country, n] of Object.entries(EURO_LEAGUE_QUALIFIERS) as [Country, number][]) {
     for (const d of LEAGUES[country].filler.slice(0, n)) {
